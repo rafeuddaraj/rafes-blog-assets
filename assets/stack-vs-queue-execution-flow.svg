@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" style="background-color: #0F0F0F; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <!-- Title -->
+  <text x="400" y="35" fill="#FFFFFF" font-size="20" font-weight="bold" text-anchor="middle" letter-spacing="1">EXECUTION FLOW: STACK (LIFO) vs QUEUE (FIFO)</text>
+
+  <!-- Left Side: Stack -->
+  <g transform="translate(80, 70)">
+    <text x="120" y="20" fill="#FFC83B" font-size="18" font-weight="bold" text-anchor="middle">STACK - LIFO</text>
+    <text x="120" y="40" fill="#888888" font-size="12" text-anchor="middle">(Last In, First Out - e.g., Call Stack)</text>
+
+    <!-- Stack Container -->
+    <path d="M 40 100 L 40 320 Q 40 330 50 330 L 190 330 Q 200 330 200 320 L 200 100" fill="none" stroke="#888888" stroke-width="4" />
+
+    <!-- Stack Elements -->
+    <rect x="55" y="270" width="130" height="40" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2" rx="4" />
+    <text x="120" y="295" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">1. Main()</text>
+
+    <rect x="55" y="220" width="130" height="40" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2" rx="4" />
+    <text x="120" y="245" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">2. FetchData()</text>
+
+    <rect x="55" y="170" width="130" height="40" fill="#FFC83B" stroke="#FFFFFF" stroke-width="2" rx="4" />
+    <text x="120" y="195" fill="#000000" font-size="14" font-weight="bold" text-anchor="middle">3. ParseJSON()</text>
+
+    <!-- Push / Pop Arrows -->
+    <path d="M 120 70 L 120 150" fill="none" stroke="#00E5FF" stroke-width="3" marker-end="url(#arrow-cyan)" />
+    <text x="80" y="110" fill="#00E5FF" font-size="14" font-weight="bold">PUSH</text>
+
+    <path d="M 160 160 Q 240 160 240 90" fill="none" stroke="#FF3B30" stroke-width="3" marker-end="url(#arrow-red)" />
+    <text x="250" y="130" fill="#FF3B30" font-size="14" font-weight="bold">POP</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="400" y1="80" x2="400" y2="400" stroke="#222222" stroke-width="2" />
+
+  <!-- Right Side: Queue -->
+  <g transform="translate(450, 70)">
+    <text x="150" y="20" fill="#00E5FF" font-size="18" font-weight="bold" text-anchor="middle">QUEUE - FIFO</text>
+    <text x="150" y="40" fill="#888888" font-size="12" text-anchor="middle">(First In, First Out - e.g., Event Loop / Task Queue)</text>
+
+    <!-- Queue Container (Horizontal) -->
+    <line x1="30" y1="180" x2="270" y2="180" stroke="#888888" stroke-width="4" />
+    <line x1="30" y1="260" x2="270" y2="260" stroke="#888888" stroke-width="4" />
+
+    <!-- Queue Elements -->
+    <rect x="50" y="195" width="60" height="50" fill="#FFC83B" stroke="#FFFFFF" stroke-width="2" rx="4" />
+    <text x="80" y="225" fill="#000000" font-size="14" font-weight="bold" text-anchor="middle">Task 1</text>
+
+    <rect x="120" y="195" width="60" height="50" fill="#1A1A1A" stroke="#00E5FF" stroke-width="2" rx="4" />
+    <text x="150" y="225" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Task 2</text>
+
+    <rect x="190" y="195" width="60" height="50" fill="#1A1A1A" stroke="#00E5FF" stroke-width="2" rx="4" />
+    <text x="220" y="225" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Task 3</text>
+
+    <!-- Enqueue / Dequeue Arrows -->
+    <path d="M 310 220 L 260 220" fill="none" stroke="#00E5FF" stroke-width="3" marker-end="url(#arrow-cyan)" />
+    <text x="270" y="165" fill="#00E5FF" font-size="14" font-weight="bold">ENQUEUE (In)</text>
+
+    <path d="M 40 220 L -10 220" fill="none" stroke="#FF3B30" stroke-width="3" marker-end="url(#arrow-red)" />
+    <text x="-20" y="165" fill="#FF3B30" font-size="14" font-weight="bold">DEQUEUE (Out)</text>
+  </g>
+
+  <!-- Arrow Markers -->
+  <defs>
+    <marker id="arrow-cyan" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00E5FF" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FF3B30" />
+    </marker>
+  </defs>
+</svg>

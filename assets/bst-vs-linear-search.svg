@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" style="background-color: #0F0F0F; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <!-- Title -->
+  <text x="400" y="35" fill="#FFFFFF" font-size="20" font-weight="bold" text-anchor="middle" letter-spacing="1">SEARCH PERFORMANCE: BST O(log n) vs LINEAR O(n)</text>
+
+  <!-- Left Side: Linear Search -->
+  <g transform="translate(40, 70)">
+    <text x="150" y="20" fill="#FF3B30" font-size="16" font-weight="bold" text-anchor="middle">Linear Search - O(n)</text>
+    <text x="150" y="40" fill="#888888" font-size="12" text-anchor="middle">Checks every element sequentially (Slow for large datasets)</text>
+
+    <!-- Array boxes -->
+    <g transform="translate(0, 80)">
+      <rect x="0" y="0" width="45" height="45" fill="#1A1A1A" stroke="#888888" stroke-width="2" rx="4"/>
+      <text x="22" y="28" fill="#888888" font-size="14" text-anchor="middle">10</text>
+      
+      <rect x="50" y="0" width="45" height="45" fill="#1A1A1A" stroke="#888888" stroke-width="2" rx="4"/>
+      <text x="72" y="28" fill="#888888" font-size="14" text-anchor="middle">25</text>
+
+      <rect x="100" y="0" width="45" height="45" fill="#1A1A1A" stroke="#888888" stroke-width="2" rx="4"/>
+      <text x="122" y="28" fill="#888888" font-size="14" text-anchor="middle">30</text>
+
+      <rect x="150" y="0" width="45" height="45" fill="#1A1A1A" stroke="#888888" stroke-width="2" rx="4"/>
+      <text x="172" y="28" fill="#888888" font-size="14" text-anchor="middle">45</text>
+
+      <rect x="200" y="0" width="45" height="45" fill="#FFC83B" stroke="#FFFFFF" stroke-width="2" rx="4"/>
+      <text x="222" y="28" fill="#000000" font-size="14" font-weight="bold" text-anchor="middle">60</text>
+
+      <rect x="250" y="0" width="45" height="45" fill="#1A1A1A" stroke="#888888" stroke-width="2" rx="4"/>
+      <text x="272" y="28" fill="#888888" font-size="14" text-anchor="middle">75</text>
+    </g>
+
+    <!-- Step arrows -->
+    <text x="150" y="160" fill="#FF3B30" font-size="14" font-weight="bold" text-anchor="middle">Target: 60 -> Required 5 Comparisons!</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="380" y1="80" x2="380" y2="400" stroke="#222222" stroke-width="2" />
+
+  <!-- Right Side: BST Search -->
+  <g transform="translate(410, 70)">
+    <text x="180" y="20" fill="#00E5FF" font-size="16" font-weight="bold" text-anchor="middle">Binary Search Tree (BST) - O(log n)</text>
+    <text x="180" y="40" fill="#888888" font-size="12" text-anchor="middle">Cuts search space in half at each step (Highly Scalable)</text>
+
+    <!-- Tree Edges -->
+    <line x1="180" y1="80" x2="100" y2="150" stroke="#888888" stroke-width="2" />
+    <line x1="180" y1="80" x2="260" y2="150" stroke="#00E5FF" stroke-width="3" />
+    <line x1="260" y1="150" x2="220" y2="220" stroke="#00E5FF" stroke-width="3" />
+    <line x1="260" y1="150" x2="300" y2="220" stroke="#888888" stroke-width="2" />
+
+    <!-- Root Node (Step 1) -->
+    <circle cx="180" cy="80" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="2" />
+    <text x="180" y="85" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">45</text>
+    <text x="220" y="80" fill="#00E5FF" font-size="12" font-weight="bold">60 > 45 (Go Right)</text>
+
+    <!-- Left Child -->
+    <circle cx="100" cy="150" r="22" fill="#1A1A1A" stroke="#222222" stroke-width="2" />
+    <text x="100" y="155" fill="#555555" font-size="14" text-anchor="middle">25</text>
+
+    <!-- Right Child (Step 2) -->
+    <circle cx="260" cy="150" r="22" fill="#1A1A1A" stroke="#00E5FF" stroke-width="2" />
+    <text x="260" y="155" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">75</text>
+    <text x="310" y="150" fill="#00E5FF" font-size="12" font-weight="bold">60 &lt; 75 (Go Left)</text>
+
+    <!-- Target Found Node (Step 3) -->
+    <circle cx="220" cy="220" r="22" fill="#FFC83B" stroke="#FFFFFF" stroke-width="3" />
+    <text x="220" y="225" fill="#000000" font-size="14" font-weight="bold" text-anchor="middle">60</text>
+    
+    <!-- Untouched Node -->
+    <circle cx="300" cy="220" r="22" fill="#1A1A1A" stroke="#222222" stroke-width="2" />
+    <text x="300" y="225" fill="#555555" font-size="14" text-anchor="middle">85</text>
+
+    <text x="180" y="290" fill="#FFC83B" font-size="14" font-weight="bold" text-anchor="middle">Target: 60 -> Required ONLY 3 Comparisons!</text>
+  </g>
+</svg>
