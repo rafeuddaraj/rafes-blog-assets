@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%" style="background:#0F0F0F; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: 700; fill: #FFFFFF; }
+      .subtitle { font-size: 14px; font-weight: 600; fill: #FFC83B; }
+      .node-text { font-size: 13px; font-weight: 600; fill: #FFFFFF; }
+      .desc-text { font-size: 11px; fill: #AAAAAA; }
+      .box { fill: #1A1A1A; stroke: #333333; stroke-width: 2; rx: 8; }
+      .box-storage { fill: #1F1A0C; stroke: #FFC83B; stroke-width: 2; rx: 8; }
+      .box-worker { fill: #141A1F; stroke: #4A90E2; stroke-width: 2; rx: 8; }
+      .box-cdn { fill: #1A141F; stroke: #904AE2; stroke-width: 2; rx: 8; }
+      .arrow { fill: none; stroke: #666666; stroke-width: 2; marker-end: url(#arrow-gray-vid); }
+      .arrow-yellow { fill: none; stroke: #FFC83B; stroke-width: 2; marker-end: url(#arrow-yellow-vid); }
+      .arrow-blue { fill: none; stroke: #4A90E2; stroke-width: 2; marker-end: url(#arrow-blue-vid); }
+      .arrow-purple { fill: none; stroke: #904AE2; stroke-width: 2; marker-end: url(#arrow-purple-vid); }
+    </style>
+    <marker id="arrow-gray-vid" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666666" />
+    </marker>
+    <marker id="arrow-yellow-vid" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FFC83B" />
+    </marker>
+    <marker id="arrow-blue-vid" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90E2" />
+    </marker>
+    <marker id="arrow-purple-vid" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#904AE2" />
+    </marker>
+  </defs>
+
+  <text x="500" y="40" text-anchor="middle" class="title">Video Streaming End-to-End Transcoding Pipeline</text>
+  <text x="500" y="60" text-anchor="middle" class="subtitle">Ingestion, Distributed Transcoding, Chunking &amp; CDN Edge Delivery</text>
+
+  <!-- Step 1: Upload -->
+  <rect x="40" y="200" width="110" height="60" class="box" />
+  <text x="95" y="225" text-anchor="middle" class="node-text">Content Creator</text>
+  <text x="95" y="245" text-anchor="middle" class="desc-text">Raw 4K Video Upload</text>
+
+  <path d="M 150 230 L 210 230" class="arrow-yellow" />
+  <text x="180" y="220" class="desc-text" text-anchor="middle">HTTP POST</text>
+
+  <!-- Step 2: Storage -->
+  <rect x="210" y="180" width="140" height="100" class="box-storage" />
+  <text x="280" y="220" text-anchor="middle" class="node-text" fill="#FFC83B">Object Storage</text>
+  <text x="280" y="240" text-anchor="middle" class="desc-text">AWS S3 / GCS Bucket</text>
+  <text x="280" y="260" text-anchor="middle" class="desc-text">Triggers Kafka Event</text>
+
+  <path d="M 350 230 L 410 230" class="arrow" />
+
+  <!-- Step 3: Queue -->
+  <rect x="410" y="195" width="120" height="70" class="box" />
+  <text x="470" y="225" text-anchor="middle" class="node-text">Message Queue</text>
+  <text x="470" y="245" text-anchor="middle" class="desc-text">Kafka / RabbitMQ</text>
+
+  <!-- Step 4: Transcoding Workers -->
+  <path d="M 530 215 L 590 145" class="arrow-blue" />
+  <path d="M 530 230 L 590 230" class="arrow-blue" />
+  <path d="M 530 245 L 590 315" class="arrow-blue" />
+
+  <rect x="590" y="110" width="150" height="55" class="box-worker" />
+  <text x="665" y="135" text-anchor="middle" class="node-text" fill="#4A90E2">Worker (1080p Chunk)</text>
+  <text x="665" y="150" text-anchor="middle" class="desc-text">FFmpeg Transcoding</text>
+
+  <rect x="590" y="200" width="150" height="55" class="box-worker" />
+  <text x="665" y="225" text-anchor="middle" class="node-text" fill="#4A90E2">Worker (720p Chunk)</text>
+  <text x="665" y="240" text-anchor="middle" class="desc-text">FFmpeg Transcoding</text>
+
+  <rect x="590" y="290" width="150" height="55" class="box-worker" />
+  <text x="665" y="315" text-anchor="middle" class="node-text" fill="#4A90E2">Worker (480p Chunk)</text>
+  <text x="665" y="330" text-anchor="middle" class="desc-text">FFmpeg Transcoding</text>
+
+  <!-- Step 5: CDN Distribution -->
+  <path d="M 740 135 L 810 210" class="arrow-purple" />
+  <path d="M 740 230 L 810 230" class="arrow-purple" />
+  <path d="M 740 315 L 810 250" class="arrow-purple" />
+
+  <rect x="810" y="180" width="150" height="100" class="box-cdn" />
+  <text x="885" y="220" text-anchor="middle" class="node-text" fill="#904AE2">Global CDN Edge</text>
+  <text x="885" y="240" text-anchor="middle" class="desc-text">Cloudflare / Cloudfront</text>
+  <text x="885" y="260" text-anchor="middle" class="desc-text">HLS / DASH Streaming</text>
+
+  <!-- End User -->
+  <path d="M 885 280 L 885 360" class="arrow-purple" />
+  
+  <rect x="815" y="360" width="140" height="60" class="box" />
+  <text x="885" y="385" text-anchor="middle" class="node-text">End Viewer Device</text>
+  <text x="885" y="405" text-anchor="middle" class="desc-text">Adaptive Bitrate Player</text>
+</svg>

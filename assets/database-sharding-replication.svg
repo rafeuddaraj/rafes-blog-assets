@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 520" width="100%" height="100%" style="background:#0F0F0F; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <style>
+      .title { font-size: 20px; font-weight: 700; fill: #FFFFFF; }
+      .subtitle { font-size: 14px; font-weight: 600; fill: #FFC83B; }
+      .node-text { font-size: 13px; font-weight: 600; fill: #FFFFFF; }
+      .desc-text { font-size: 11px; fill: #AAAAAA; }
+      .box { fill: #1A1A1A; stroke: #333333; stroke-width: 2; rx: 8; }
+      .box-router { fill: #1F1A0C; stroke: #FFC83B; stroke-width: 2; rx: 8; }
+      .box-shard { fill: #141A1F; stroke: #4A90E2; stroke-width: 2; rx: 8; }
+      .box-nosql { fill: #1A141F; stroke: #904AE2; stroke-width: 2; rx: 8; }
+      .arrow { fill: none; stroke: #666666; stroke-width: 2; marker-end: url(#arrow-gray-db); }
+      .arrow-blue { fill: none; stroke: #4A90E2; stroke-width: 2; marker-end: url(#arrow-blue-db); }
+      .arrow-purple { fill: none; stroke: #904AE2; stroke-width: 2; marker-end: url(#arrow-purple-db); }
+    </style>
+    <marker id="arrow-gray-db" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#666666" />
+    </marker>
+    <marker id="arrow-blue-db" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#4A90E2" />
+    </marker>
+    <marker id="arrow-purple-db" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#904AE2" />
+    </marker>
+  </defs>
+
+  <text x="500" y="40" text-anchor="middle" class="title">Distributed Database Architecture</text>
+  <text x="500" y="60" text-anchor="middle" class="subtitle">Horizontal Sharding (SQL) &amp; Polyglot Persistence (NoSQL)</text>
+
+  <!-- Application Layer -->
+  <rect x="400" y="90" width="200" height="50" class="box" />
+  <text x="500" y="120" text-anchor="middle" class="node-text">FoodFast Application Cluster</text>
+
+  <path d="M 500 140 L 500 180" class="arrow" />
+
+  <!-- Shard Router / Proxy -->
+  <rect x="380" y="180" width="240" height="60" class="box-router" />
+  <text x="500" y="205" text-anchor="middle" class="node-text" fill="#FFC83B">Database Routing / Sharding Layer</text>
+  <text x="500" y="225" text-anchor="middle" class="desc-text">Hash-based Key Routing (City ID / User ID)</text>
+
+  <!-- SQL Shards -->
+  <path d="M 440 240 L 250 310" class="arrow-blue" />
+  <path d="M 500 240 L 500 310" class="arrow-blue" />
+  <path d="M 560 240 L 750 310" class="arrow-purple" />
+
+  <!-- Shard 1 -->
+  <rect x="150" y="310" width="180" height="80" class="box-shard" />
+  <text x="240" y="335" text-anchor="middle" class="node-text" fill="#4A90E2">Shard A (Dhaka Region)</text>
+  <text x="240" y="355" text-anchor="middle" class="desc-text">PostgreSQL Leader-Follower</text>
+  <text x="240" y="375" text-anchor="middle" class="desc-text">ACID Orders &amp; Payments</text>
+
+  <!-- Shard 2 -->
+  <rect x="410" y="310" width="180" height="80" class="box-shard" />
+  <text x="500" y="335" text-anchor="middle" class="node-text" fill="#4A90E2">Shard B (Chittagong Region)</text>
+  <text x="500" y="355" text-anchor="middle" class="desc-text">PostgreSQL Leader-Follower</text>
+  <text x="500" y="375" text-anchor="middle" class="desc-text">ACID Orders &amp; Payments</text>
+
+  <!-- NoSQL Polyglot Layer -->
+  <rect x="670" y="310" width="180" height="80" class="box-nosql" />
+  <text x="760" y="335" text-anchor="middle" class="node-text" fill="#904AE2">NoSQL Cluster (MongoDB)</text>
+  <text x="760" y="355" text-anchor="middle" class="desc-text">High-Volume Unstructured Data</text>
+  <text x="760" y="375" text-anchor="middle" class="desc-text">Live GPS Tracking &amp; Chat Logs</text>
+
+  <!-- Replication Details below Shard A -->
+  <path d="M 240 390 L 180 440" class="arrow-blue" stroke-dasharray="3 3" />
+  <path d="M 240 390 L 300 440" class="arrow-blue" stroke-dasharray="3 3" />
+
+  <rect x="120" y="440" width="110" height="50" class="box" />
+  <text x="175" y="465" text-anchor="middle" class="node-text" font-size="11">Read Follower 1</text>
+  <text x="175" y="480" text-anchor="middle" class="desc-text" font-size="9">B-Tree Indexed</text>
+
+  <rect x="250" y="440" width="110" height="50" class="box" />
+  <text x="305" y="465" text-anchor="middle" class="node-text" font-size="11">Read Follower 2</text>
+  <text x="305" y="480" text-anchor="middle" class="desc-text" font-size="9">B-Tree Indexed</text>
+</svg>
