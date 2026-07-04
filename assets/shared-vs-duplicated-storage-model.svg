@@ -1,52 +1,252 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%" style="background-color: #0F0F0F; font-family: 'Courier New', Courier, monospace;">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="800"
+     height="400"
+     viewBox="0 0 800 400">
+
+  <!-- Background -->
+  <rect width="800" height="400" fill="#0F0F0F"/>
+
   <!-- Title -->
-  <text x="400" y="30" fill="#FFC83B" font-size="18" font-weight="bold" text-anchor="middle">SHARED DATA MODEL vs DUPLICATED STORAGE MODEL</text>
-  <line x1="50" y1="45" x2="750" y2="45" stroke="#333333" stroke-width="2"/>
+  <text x="400" y="30"
+        fill="#FFC83B"
+        font-size="18"
+        font-weight="bold"
+        font-family="Courier New, monospace"
+        text-anchor="middle">
+    SHARED DATA MODEL vs DUPLICATED STORAGE MODEL
+  </text>
 
-  <!-- Left Side: Duplicated Model -->
-  <text x="200" y="75" fill="#FFFFFF" font-size="16" font-weight="bold" text-anchor="middle">1. Duplicated Model (Naive)</text>
-  <text x="200" y="95" fill="#888888" font-size="12" text-anchor="middle">Write Amplification: Two rows per message</text>
+  <line x1="50" y1="45" x2="750" y2="45"
+        stroke="#333333"
+        stroke-width="2"/>
 
-  <!-- User A Table Box -->
-  <rect x="50" y="120" width="300" height="90" rx="5" fill="#1A1A1A" stroke="#FF5555" stroke-width="1.5"/>
-  <text x="65" y="140" fill="#FF5555" font-size="13" font-weight="bold">User A Inbox Table</text>
-  <rect x="65" y="155" width="270" height="20" fill="#2A2A2A"/>
-  <text x="75" y="170" fill="#FFFFFF" font-size="11">Row 1: [Msg: "Hello"] [Status: Active]</text>
-  <rect x="65" y="180" width="270" height="20" fill="#2A2A2A"/>
-  <text x="75" y="195" fill="#888888" font-size="11">Row 2: [Msg: "Meeting at 5"] [Deleted]</text>
+  <!-- Left Side -->
+  <text x="200" y="75"
+        fill="#FFFFFF"
+        font-size="16"
+        font-weight="bold"
+        font-family="Courier New, monospace"
+        text-anchor="middle">
+    1. Duplicated Model (Naive)
+  </text>
 
-  <!-- User B Table Box -->
-  <rect x="50" y="230" width="300" height="90" rx="5" fill="#1A1A1A" stroke="#FF5555" stroke-width="1.5"/>
-  <text x="65" y="250" fill="#FF5555" font-size="13" font-weight="bold">User B Inbox Table</text>
-  <rect x="65" y="265" width="270" height="20" fill="#2A2A2A"/>
-  <text x="75" y="280" fill="#FFFFFF" font-size="11">Row 1: [Msg: "Hello"] [Status: Active]</text>
-  <rect x="65" y="290" width="270" height="20" fill="#2A2A2A"/>
-  <text x="75" y="305" fill="#FFFFFF" font-size="11">Row 2: [Msg: "Meeting at 5"] [Active]</text>
+  <text x="200" y="95"
+        fill="#888888"
+        font-size="12"
+        font-family="Courier New, monospace"
+        text-anchor="middle">
+    Write Amplification: Two rows per message
+  </text>
 
-  <text x="200" y="350" fill="#FF5555" font-size="12" text-anchor="middle">Result: 2x Storage & Heavy Index Maintenance</text>
+  <!-- User A -->
+  <rect x="50" y="120"
+        width="300"
+        height="90"
+        rx="5"
+        fill="#1A1A1A"
+        stroke="#FF5555"
+        stroke-width="1.5"/>
+
+  <text x="65" y="140"
+        fill="#FF5555"
+        font-size="13"
+        font-weight="bold"
+        font-family="Courier New, monospace">
+    User A Inbox Table
+  </text>
+
+  <rect x="65" y="155"
+        width="270"
+        height="20"
+        fill="#2A2A2A"/>
+
+  <text x="75" y="170"
+        fill="#FFFFFF"
+        font-size="11"
+        font-family="Courier New, monospace">
+    Row 1: [Msg: "Hello"] [Status: Active]
+  </text>
+
+  <rect x="65" y="180"
+        width="270"
+        height="20"
+        fill="#2A2A2A"/>
+
+  <text x="75" y="195"
+        fill="#888888"
+        font-size="11"
+        font-family="Courier New, monospace">
+    Row 2: [Msg: "Meeting at 5"] [Deleted]
+  </text>
+
+  <!-- User B -->
+  <rect x="50" y="230"
+        width="300"
+        height="90"
+        rx="5"
+        fill="#1A1A1A"
+        stroke="#FF5555"
+        stroke-width="1.5"/>
+
+  <text x="65" y="250"
+        fill="#FF5555"
+        font-size="13"
+        font-weight="bold"
+        font-family="Courier New, monospace">
+    User B Inbox Table
+  </text>
+
+  <rect x="65" y="265"
+        width="270"
+        height="20"
+        fill="#2A2A2A"/>
+
+  <text x="75" y="280"
+        fill="#FFFFFF"
+        font-size="11"
+        font-family="Courier New, monospace">
+    Row 1: [Msg: "Hello"] [Status: Active]
+  </text>
+
+  <rect x="65" y="290"
+        width="270"
+        height="20"
+        fill="#2A2A2A"/>
+
+  <text x="75" y="305"
+        fill="#FFFFFF"
+        font-size="11"
+        font-family="Courier New, monospace">
+    Row 2: [Msg: "Meeting at 5"] [Active]
+  </text>
+
+  <text x="200"
+        y="350"
+        fill="#FF5555"
+        font-size="12"
+        font-family="Courier New, monospace"
+        text-anchor="middle">
+    Result: 2x Storage &amp; Heavy Index Maintenance
+  </text>
 
   <!-- Divider -->
-  <line x1="400" y1="60" x2="400" y2="370" stroke="#333333" stroke-width="2" stroke-dasharray="5,5"/>
+  <line x1="400"
+        y1="60"
+        x2="400"
+        y2="370"
+        stroke="#333333"
+        stroke-width="2"
+        stroke-dasharray="5,5"/>
 
-  <!-- Right Side: Shared Model -->
-  <text x="600" y="75" fill="#FFFFFF" font-size="16" font-weight="bold" text-anchor="middle">2. Shared Data Model (Smart)</text>
-  <text x="600" y="95" fill="#888888" font-size="12" text-anchor="middle">Single Immutable Table + Metadata Pointers</text>
+  <!-- Right Side -->
+  <text x="600"
+        y="75"
+        fill="#FFFFFF"
+        font-size="16"
+        font-weight="bold"
+        font-family="Courier New, monospace"
+        text-anchor="middle">
+    2. Shared Data Model (Smart)
+  </text>
 
-  <!-- Shared Messages Table -->
-  <rect x="450" y="120" width="300" height="110" rx="5" fill="#1A1A1A" stroke="#55FF55" stroke-width="1.5"/>
-  <text x="465" y="140" fill="#55FF55" font-size="13" font-weight="bold">messages Table (Immutable Log)</text>
+  <text x="600"
+        y="95"
+        fill="#888888"
+        font-size="12"
+        font-family="Courier New, monospace"
+        text-anchor="middle">
+    Single Immutable Table + Metadata Pointers
+  </text>
+
+  <!-- Messages -->
+  <rect x="450"
+        y="120"
+        width="300"
+        height="110"
+        rx="5"
+        fill="#1A1A1A"
+        stroke="#55FF55"
+        stroke-width="1.5"/>
+
+  <text x="465"
+        y="140"
+        fill="#55FF55"
+        font-size="13"
+        font-weight="bold"
+        font-family="Courier New, monospace">
+    messages Table (Immutable Log)
+  </text>
+
   <rect x="465" y="155" width="270" height="20" fill="#2A2A2A"/>
-  <text x="475" y="170" fill="#FFFFFF" font-size="11">ID: 101 | Msg: "Hello" | Time: 09:00</text>
+
+  <text x="475" y="170"
+        fill="#FFFFFF"
+        font-size="11"
+        font-family="Courier New, monospace">
+    ID: 101 | Msg: "Hello" | Time: 09:00
+  </text>
+
   <rect x="465" y="180" width="270" height="20" fill="#2A2A2A"/>
-  <text x="475" y="195" fill="#FFFFFF" font-size="11">ID: 102 | Msg: "Meeting" | Time: 09:30</text>
+
+  <text x="475" y="195"
+        fill="#FFFFFF"
+        font-size="11"
+        font-family="Courier New, monospace">
+    ID: 102 | Msg: "Meeting" | Time: 09:30
+  </text>
+
   <rect x="465" y="205" width="270" height="20" fill="#2A2A2A"/>
-  <text x="475" y="220" fill="#FFC83B" font-size="11">ID: 103 | Msg: "Done"    | Time: 10:15</text>
 
-  <!-- Participants Table -->
-  <rect x="450" y="250" width="300" height="80" rx="5" fill="#1A1A1A" stroke="#FFC83B" stroke-width="1.5"/>
-  <text x="465" y="270" fill="#FFC83B" font-size="13" font-weight="bold">participants Table (View State)</text>
-  <text x="465" y="290" fill="#FFFFFF" font-size="11">User A: cleared_at = 10:00 (Sees ID: 103)</text>
-  <text x="465" y="310" fill="#888888" font-size="11">User B: cleared_at = 00:00 (Sees All)</text>
+  <text x="475" y="220"
+        fill="#FFC83B"
+        font-size="11"
+        font-family="Courier New, monospace">
+    ID: 103 | Msg: "Done" | Time: 10:15
+  </text>
 
-  <text x="600" y="350" fill="#55FF55" font-size="12" text-anchor="middle">Result: Big-O(1) Clear & Zero Write Amplification</text>
+  <!-- Participants -->
+  <rect x="450"
+        y="250"
+        width="300"
+        height="80"
+        rx="5"
+        fill="#1A1A1A"
+        stroke="#FFC83B"
+        stroke-width="1.5"/>
+
+  <text x="465"
+        y="270"
+        fill="#FFC83B"
+        font-size="13"
+        font-weight="bold"
+        font-family="Courier New, monospace">
+    participants Table (View State)
+  </text>
+
+  <text x="465"
+        y="290"
+        fill="#FFFFFF"
+        font-size="11"
+        font-family="Courier New, monospace">
+    User A: cleared_at = 10:00 (Sees ID: 103)
+  </text>
+
+  <text x="465"
+        y="310"
+        fill="#888888"
+        font-size="11"
+        font-family="Courier New, monospace">
+    User B: cleared_at = 00:00 (Sees All)
+  </text>
+
+  <text x="600"
+        y="350"
+        fill="#55FF55"
+        font-size="12"
+        font-family="Courier New, monospace"
+        text-anchor="middle">
+    Result: Big-O(1) Clear &amp; Zero Write Amplification
+  </text>
+
 </svg>
