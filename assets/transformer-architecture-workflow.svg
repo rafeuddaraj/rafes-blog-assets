@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="450" viewBox="0 0 800 450" role="img" aria-labelledby="title desc" text-rendering="geometricPrecision" shape-rendering="geometricPrecision">
+<title id="title">RNN vs Transformer: Under-the-Hood Execution Flow</title>
+<desc id="desc">Comparison of sequential RNN execution and parallel Transformer self-attention.</desc>
+<style>
+.bg{fill:#0A0A0A}
+.title{fill:#fff;font:700 18px Inter,system-ui,Arial,sans-serif;text-anchor:middle}
+.subtitle{fill:#888;font:13px Inter,system-ui,Arial,sans-serif;text-anchor:middle}
+.panel{fill:#141414;stroke:#222;stroke-width:2}
+.panel-active{fill:#141414;stroke:#FFC83B;stroke-width:2}
+.box{fill:#1F1F1F;stroke:#444;stroke-width:1.5}
+.box-yellow{fill:#FFC83B;stroke:#FFC83B;stroke-width:1.5}
+.text-white{fill:#fff;font:600 13px Inter,system-ui,Arial,sans-serif;text-anchor:middle}
+.text-dark{fill:#0A0A0A;font:700 13px Inter,system-ui,Arial,sans-serif;text-anchor:middle}
+.text-sm{fill:#AAA;font:11px Inter,system-ui,Arial,sans-serif;text-anchor:middle}
+.arrow{stroke:#666;stroke-width:2;fill:none;marker-end:url(#ag)}
+.arrow-yellow{stroke:#FFC83B;stroke-width:2;fill:none;marker-end:url(#ay)}
+.line-con{stroke:#FFC83B;stroke-width:1;opacity:.4;stroke-dasharray:4 2}
+</style>
+<defs>
+<marker id="ag" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L8 5L0 9Z" fill="#666"/></marker>
+<marker id="ay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M0 1L8 5L0 9Z" fill="#FFC83B"/></marker>
+</defs>
+<rect class="bg" width="800" height="450"/>
+<text x="400" y="35" class="title">RNN vs Transformer: Under-the-Hood Execution Flow</text>
+<text x="400" y="55" class="subtitle">Sequential Bottleneck vs Parallel Self-Attention Architecture</text>
+
+<rect x="30" y="80" width="350" height="340" rx="8" class="panel"/>
+<text x="205" y="110" class="title" style="font-size:15px">Sequential RNN / LSTM</text>
+<text x="205" y="130" class="subtitle" fill="#FF6B6B">O(N) Step Bottleneck | No Parallelization</text>
+<rect x="55" y="240" width="60" height="40" rx="6" class="box"/><text x="85" y="265" class="text-white">Token 1</text>
+<path d="M115 260L145 260" class="arrow"/>
+<rect x="145" y="240" width="60" height="40" rx="6" class="box"/><text x="175" y="265" class="text-white">Token 2</text>
+<path d="M205 260L235 260" class="arrow"/>
+<rect x="235" y="240" width="60" height="40" rx="6" class="box"/><text x="265" y="265" class="text-white">Token 3</text>
+<path d="M295 260L325 260" class="arrow"/>
+<rect x="325" y="240" width="35" height="40" rx="6" class="box" stroke="#FF6B6B"/><text x="342" y="265" class="text-white" fill="#FF6B6B">...</text>
+<rect x="55" y="320" width="305" height="75" rx="6" fill="#1A1414" stroke="#442222"/>
+<text x="207" y="345" class="text-white" fill="#FF8888" font-size="12">Hardware Limitation Notice</text>
+<text x="207" y="365" class="text-sm" fill="#DDD">Each step must wait for previous hidden state.</text>
+<text x="207" y="380" class="text-sm" fill="#DDD">GPU clusters remain underutilized (High Latency).</text>
+
+<rect x="420" y="80" width="350" height="340" rx="8" class="panel-active"/>
+<text x="595" y="110" class="title" fill="#FFC83B" style="font-size:15px">Google Transformer Architecture</text>
+<text x="595" y="130" class="subtitle" fill="#48BB78">O(1) Sequential Operations | 100% Parallel</text>
+<rect x="460" y="160" width="270" height="50" rx="6" class="box-yellow"/>
+<text x="595" y="185" class="text-dark">Multi-Head Self-Attention Engine</text>
+<text x="595" y="200" class="text-dark" font-size="11">(Simultaneous Matrix Multiplication)</text>
+</svg>

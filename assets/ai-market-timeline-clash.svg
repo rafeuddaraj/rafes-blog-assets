@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="900" height="390" viewBox="0 0 900 390">
+<style>
+.bg{fill:#0A0A0A}.title{fill:#fff;font:700 18px Arial,sans-serif;text-anchor:middle}
+.sub{fill:#888;font:13px Arial,sans-serif;text-anchor:middle}
+.timeline{stroke:#333;stroke-width:4;stroke-linecap:round}
+.drop{stroke:#666;stroke-width:1.5;stroke-dasharray:4 4}
+.box{fill:#141414;stroke:#333;stroke-width:1.5}.boxH{fill:#1A170D;stroke:#FFC83B;stroke-width:2}
+.w{fill:#fff;font:700 13px Arial,sans-serif;text-anchor:middle}.d{fill:#aaa;font:11px Arial,sans-serif;text-anchor:middle}
+</style>
+<rect class="bg" width="900" height="390"/>
+<text x="450" y="32" class="title">The Generative AI Strategic Timeline (2017 - Present)</text>
+<text x="450" y="54" class="sub">How Open-Sourcing a Core Architecture Triggered an Industry Clash</text>
+
+<line x1="70" y1="235" x2="830" y2="235" class="timeline"/>
+
+<line x1="140" y1="235" x2="140" y2="120" class="drop"/>
+<circle cx="140" cy="235" r="8" fill="#4285F4" stroke="#fff" stroke-width="2"/>
+<rect x="55" y="58" width="170" height="58" rx="6" class="box"/>
+<text x="140" y="80" class="w" fill="#669DF6">Mid 2017: Google</text>
+<text x="140" y="98" class="d">Publishes "Attention Is"</text>
+<text x="140" y="112" class="d">All You Need (Transformer)</text>
+
+<line x1="320" y1="235" x2="320" y2="285" class="drop"/>
+<circle cx="320" cy="235" r="8" fill="#888" stroke="#fff" stroke-width="2"/>
+<rect x="235" y="290" width="170" height="58" rx="6" class="box"/>
+<text x="320" y="312" class="w">2018 - 2021: OpenAI</text>
+<text x="320" y="330" class="d">Silently scales architecture</text>
+<text x="320" y="344" class="d">(GPT-1, GPT-2, GPT-3)</text>
+
+<line x1="500" y1="235" x2="500" y2="135" class="drop" stroke="#FFC83B"/>
+<circle cx="500" cy="235" r="10" fill="#FFC83B" stroke="#fff" stroke-width="3"/>
+<rect x="390" y="70" width="220" height="66" rx="6" class="boxH"/>
+<text x="500" y="94" class="w" fill="#FFC83B">Nov 2022: Masterstroke</text>
+<text x="500" y="114" class="w">OpenAI launches ChatGPT</text>
+<text x="500" y="128" class="d">First-Mover Advantage Secured</text>
+
+<line x1="680" y1="235" x2="680" y2="285" class="drop"/>
+<circle cx="680" cy="235" r="8" fill="#EA4335" stroke="#fff" stroke-width="2"/>
+<rect x="590" y="290" width="180" height="58" rx="6" class="box"/>
+<text x="680" y="312" class="w" fill="#F28B82">Early 2023: Code Red</text>
+<text x="680" y="330" class="d">Google panics, rushes</text>
+<text x="680" y="344" class="d">"Bard" launch (Stumbles)</text>
+
+<line x1="820" y1="235" x2="820" y2="120" class="drop"/>
+<circle cx="820" cy="235" r="8" fill="#34A853" stroke="#fff" stroke-width="2"/>
+<rect x="730" y="58" width="160" height="58" rx="6" class="box"/>
+<text x="810" y="80" class="w" fill="#81C995">Present: The Clash</text>
+<text x="810" y="98" class="d">Google rebrands to Gemini</text>
+<text x="810" y="112" class="d">Fights GPT-4 / Omni era</text>
+</svg>
