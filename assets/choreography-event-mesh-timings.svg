@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" height="100%" style="background-color: #0F0F0F; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow-event" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#00E5FF"/>
+    </marker>
+    <marker id="arrow-rollback" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#FF5252"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="35" fill="#FFFFFF" font-size="18" font-weight="bold" text-anchor="middle" letter-spacing="1">CHOREOGRAPHY EVENT MESH TIMINGS: CASCADING ROLLBACK</text>
+  <text x="500" y="55" fill="#888888" font-size="12" text-anchor="middle">Decentralized Event-Driven Communication via Message Broker Topics &amp; Failure Recovery</text>
+
+  <!-- Lifelines -->
+  <line x1="150" y1="100" x2="150" y2="420" stroke="#333333" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="400" y1="100" x2="400" y2="420" stroke="#333333" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="650" y1="100" x2="650" y2="420" stroke="#333333" stroke-width="2" stroke-dasharray="4,4"/>
+  <line x1="900" y1="100" x2="900" y2="420" stroke="#333333" stroke-width="2" stroke-dasharray="4,4"/>
+
+  <!-- Service Headers -->
+  <rect x="70" y="70" width="160" height="40" rx="6" fill="#181818" stroke="#FFC83B" stroke-width="1.5"/>
+  <text x="150" y="95" fill="#FFC83B" font-size="13" font-weight="bold" text-anchor="middle">Order Service</text>
+
+  <rect x="320" y="70" width="160" height="40" rx="6" fill="#181818" stroke="#00E5FF" stroke-width="1.5"/>
+  <text x="400" y="95" fill="#00E5FF" font-size="13" font-weight="bold" text-anchor="middle">Kafka / Broker</text>
+
+  <rect x="570" y="70" width="160" height="40" rx="6" fill="#181818" stroke="#FFFFFF" stroke-width="1.5"/>
+  <text x="650" y="95" fill="#FFFFFF" font-size="13" font-weight="bold" text-anchor="middle">Payment Service</text>
+
+  <rect x="820" y="70" width="160" height="40" rx="6" fill="#181818" stroke="#FF5252" stroke-width="1.5"/>
+  <text x="900" y="95" fill="#FF5252" font-size="13" font-weight="bold" text-anchor="middle">Inventory Service</text>
+
+  <!-- Step 1: Order Created -->
+  <path d="M 150 140 L 400 140" stroke="#00E5FF" stroke-width="2" marker-end="url(#arrow-event)"/>
+  <text x="275" y="130" fill="#00E5FF" font-size="11" text-anchor="middle">1. Publish: OrderCreated</text>
+  
+  <path d="M 400 170 L 650 170" stroke="#00E5FF" stroke-width="2" marker-end="url(#arrow-event)"/>
+  <text x="525" y="160" fill="#FFFFFF" font-size="11" text-anchor="middle">2. Consume Event</text>
+
+  <!-- Step 2: Payment Billed -->
+  <rect x="640" y="180" width="20" height="40" fill="#222222" stroke="#FFFFFF" stroke-width="1"/>
+  <text x="710" y="205" fill="#888888" font-size="10">chargeCard()</text>
+
+  <path d="M 650 230 L 400 230" stroke="#00E5FF" stroke-width="2" marker-end="url(#arrow-event)"/>
+  <text x="525" y="220" fill="#00E5FF" font-size="11" text-anchor="middle">3. Publish: PaymentBilled</text>
+
+  <path d="M 400 260 L 900 260" stroke="#00E5FF" stroke-width="2" marker-end="url(#arrow-event)"/>
+  <text x="650" y="250" fill="#FFFFFF" font-size="11" text-anchor="middle">4. Consume Event</text>
+
+  <!-- Step 3: Inventory Fails -->
+  <rect x="890" y="270" width="20" height="40" fill="#2A1515" stroke="#FF5252" stroke-width="1"/>
+  <text x="820" y="295" fill="#FF5252" font-size="11" font-weight="bold">Out of Stock [ERR]</text>
+
+  <path d="M 900 320 L 400 320" stroke="#FF5252" stroke-width="2" marker-end="url(#arrow-rollback)" stroke-dasharray="4,4"/>
+  <text x="650" y="310" fill="#FF5252" font-size="11" font-weight="bold" text-anchor="middle">5. Publish: InventoryFailed (Rollback Trigger)</text>
+
+  <!-- Step 4: Cascading Rollback -->
+  <path d="M 400 360 L 650 360" stroke="#FF5252" stroke-width="2" marker-end="url(#arrow-rollback)" stroke-dasharray="4,4"/>
+  <text x="525" y="350" fill="#FF5252" font-size="11" text-anchor="middle">6. Consume: Refund Payment</text>
+
+  <path d="M 400 390 L 150 390" stroke="#FF5252" stroke-width="2" marker-end="url(#arrow-rollback)" stroke-dasharray="4,4"/>
+  <text x="275" y="380" fill="#FF5252" font-size="11" text-anchor="middle">7. Consume: Cancel Order</text>
+
+  <!-- Status Summary Box -->
+  <rect x="70" y="430" width="860" height="35" rx="4" fill="#141414" stroke="#333333" stroke-width="1"/>
+  <text x="500" y="452" fill="#CCCCCC" font-size="12" text-anchor="middle">Result: All intermediate states are cleanly compensated asynchronously without blocking database connections.</text>
+</svg>
