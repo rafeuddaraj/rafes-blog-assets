@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 480" width="100%" height="100%" style="background-color: #0F0F0F; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <marker id="arrow-time" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#FFC83B"/>
+    </marker>
+    <marker id="arrow-down" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 1 L 10 5 L 0 9 z" fill="#888888"/>
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="35" fill="#FFFFFF" font-size="18" font-weight="bold" text-anchor="middle" letter-spacing="1">EXECUTION TRACE TIMELINE: CLIENT TO CONSUMER</text>
+  <text x="500" y="55" fill="#888888" font-size="12" text-anchor="middle">Millisecond-Level Sequence of Atomic Write, Async CDC Polling, and Idempotent Processing</text>
+
+  <!-- Timeline Horizontal Axis -->
+  <path d="M 50 120 L 950 120" stroke="#333333" stroke-width="3"/>
+  <path d="M 940 115 L 950 120 L 940 125" fill="#333333" stroke="#333333"/>
+  <text x="940" y="100" fill="#888888" font-size="12" font-style="italic">Time (ms)</text>
+
+  <!-- Step 1: Client Request -->
+  <circle cx="100" cy="120" r="10" fill="#FFC83B"/>
+  <path d="M 100 130 L 100 180" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-down)"/>
+  <text x="100" y="85" fill="#FFC83B" font-size="13" font-weight="bold" text-anchor="middle">T = 0 ms</text>
+  <text x="100" y="105" fill="#FFFFFF" font-size="12" text-anchor="middle">POST /orders</text>
+  <rect x="40" y="190" width="120" height="80" rx="6" fill="#181818" stroke="#444444" stroke-width="1.5"/>
+  <text x="100" y="215" fill="#FFFFFF" font-size="12" font-weight="bold" text-anchor="middle">Client API Call</text>
+  <text x="100" y="235" fill="#888888" font-size="11" text-anchor="middle">Payload arrives</text>
+  <text x="100" y="250" fill="#888888" font-size="11" text-anchor="middle">at Order Service</text>
+
+  <!-- Step 2: Atomic DB Commit -->
+  <circle cx="280" cy="120" r="10" fill="#FFC83B"/>
+  <path d="M 280 130 L 280 180" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-down)"/>
+  <text x="280" y="85" fill="#FFC83B" font-size="13" font-weight="bold" text-anchor="middle">T + 15 ms</text>
+  <text x="280" y="105" fill="#FFFFFF" font-size="12" text-anchor="middle">DB Commit</text>
+  <rect x="210" y="190" width="140" height="95" rx="6" fill="#181818" stroke="#FFC83B" stroke-width="1.5"/>
+  <text x="280" y="215" fill="#FFC83B" font-size="12" font-weight="bold" text-anchor="middle">Atomic Transaction</text>
+  <text x="280" y="235" fill="#FFFFFF" font-size="11" text-anchor="middle">1. Insert Order</text>
+  <text x="280" y="252" fill="#FFFFFF" font-size="11" text-anchor="middle">2. Insert Outbox</text>
+  <text x="280" y="270" fill="#888888" font-size="10" text-anchor="middle">(Single WAL Write)</text>
+
+  <!-- Step 3: CDC Log Read -->
+  <circle cx="460" cy="120" r="10" fill="#00E5FF"/>
+  <path d="M 460 130 L 460 180" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-down)"/>
+  <text x="460" y="85" fill="#00E5FF" font-size="13" font-weight="bold" text-anchor="middle">T + 25 ms</text>
+  <text x="460" y="105" fill="#FFFFFF" font-size="12" text-anchor="middle">WAL Capture</text>
+  <rect x="390" y="190" width="140" height="95" rx="6" fill="#181818" stroke="#00E5FF" stroke-width="1.5"/>
+  <text x="460" y="215" fill="#00E5FF" font-size="12" font-weight="bold" text-anchor="middle">Debezium CDC</text>
+  <text x="460" y="235" fill="#FFFFFF" font-size="11" text-anchor="middle">Reads DB WAL log</text>
+  <text x="460" y="252" fill="#FFFFFF" font-size="11" text-anchor="middle">No DB Query Load</text>
+  <text x="460" y="270" fill="#888888" font-size="10" text-anchor="middle">Zero Row Locking</text>
+
+  <!-- Step 4: Broker Publish -->
+  <circle cx="640" cy="120" r="10" fill="#FFC83B"/>
+  <path d="M 640 130 L 640 180" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-down)"/>
+  <text x="640" y="85" fill="#FFC83B" font-size="13" font-weight="bold" text-anchor="middle">T + 35 ms</text>
+  <text x="640" y="105" fill="#FFFFFF" font-size="12" text-anchor="middle">Kafka Publish</text>
+  <rect x="570" y="190" width="140" height="95" rx="6" fill="#181818" stroke="#FFC83B" stroke-width="1.5"/>
+  <text x="640" y="215" fill="#FFC83B" font-size="12" font-weight="bold" text-anchor="middle">Message Broker</text>
+  <text x="640" y="235" fill="#FFFFFF" font-size="11" text-anchor="middle">Pushed to Topic</text>
+  <text x="640" y="252" fill="#FFFFFF" font-size="11" text-anchor="middle">At-least-once</text>
+  <text x="640" y="270" fill="#888888" font-size="10" text-anchor="middle">Delivery Guarantee</text>
+
+  <!-- Step 5: Idempotent Consumption -->
+  <circle cx="820" cy="120" r="10" fill="#00E5FF"/>
+  <path d="M 820 130 L 820 180" stroke="#888888" stroke-width="1.5" stroke-dasharray="3,3" marker-end="url(#arrow-down)"/>
+  <text x="820" y="85" fill="#00E5FF" font-size="13" font-weight="bold" text-anchor="middle">T + 50 ms</text>
+  <text x="820" y="105" fill="#FFFFFF" font-size="12" text-anchor="middle">Event Consumption</text>
+  <rect x="740" y="190" width="160" height="95" rx="6" fill="#181818" stroke="#00E5FF" stroke-width="1.5"/>
+  <text x="820" y="215" fill="#00E5FF" font-size="12" font-weight="bold" text-anchor="middle">Consumer Service</text>
+  <text x="820" y="235" fill="#FFFFFF" font-size="11" text-anchor="middle">Check Message ID</text>
+  <text x="820" y="252" fill="#FFFFFF" font-size="11" text-anchor="middle">Drop if Duplicate</text>
+  <text x="820" y="270" fill="#888888" font-size="10" text-anchor="middle">Execute Business Logic</text>
+
+  <!-- Bottom Legend / Status Bar -->
+  <rect x="50" y="340" width="900" height="90" rx="8" fill="#141414" stroke="#333333" stroke-width="1"/>
+  <text x="80" y="370" fill="#FFC83B" font-size="13" font-weight="bold">CRITICAL PERFORMANCE TAKEAWAY:</text>
+  <text x="80" y="395" fill="#CCCCCC" font-size="12">The entire end-to-end distributed transaction completes asynchronously within ~50 milliseconds.</text>
+  <text x="80" y="415" fill="#888888" font-size="12">The user API response is returned immediately at T + 15 ms without blocking or waiting for external network serialization.</text>
+</svg>
