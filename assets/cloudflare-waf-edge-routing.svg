@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 550" width="100%" height="100%" style="background-color: #0F0F0F; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">
+  <defs>
+    <style>
+      .title { fill: #FFFFFF; font-size: 22px; font-weight: bold; letter-spacing: 0.5px; }
+      .subtitle { fill: #888888; font-size: 14px; }
+      .node-text { fill: #FFFFFF; font-size: 14px; font-weight: 600; text-anchor: middle; }
+      .node-subtext { fill: #888888; font-size: 12px; text-anchor: middle; }
+      .box { fill: #1A1A1A; stroke: #333333; stroke-width: 2; rx: 8px; }
+      .box-highlight { fill: #1E1A0F; stroke: #FFC83B; stroke-width: 2; rx: 8px; }
+      .box-success { fill: #0F1E13; stroke: #2ecc71; stroke-width: 2; rx: 8px; }
+      .box-danger { fill: #1E0F0F; stroke: #e74c3c; stroke-width: 2; rx: 8px; }
+      .arrow { fill: none; stroke: #888888; stroke-width: 2; marker-end: url(#arrowhead); }
+      .arrow-success { fill: none; stroke: #2ecc71; stroke-width: 2; marker-end: url(#arrowhead-success); }
+      .arrow-danger { fill: none; stroke: #e74c3c; stroke-width: 2; marker-end: url(#arrowhead-danger); }
+      .label-text { font-size: 12px; font-weight: bold; text-anchor: middle; }
+    </style>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#888888" />
+    </marker>
+    <marker id="arrowhead-success" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#2ecc71" />
+    </marker>
+    <marker id="arrowhead-danger" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+    </marker>
+  </defs>
+
+  <!-- Title Section -->
+  <text x="40" y="45" class="title">Cloudflare WAF Edge Routing Architecture</text>
+  <text x="40" y="70" class="subtitle">Filtering unverified AI scrapers while preserving SEO indexer access via cf.client.bot</text>
+
+  <!-- Incoming Requests Node -->
+  <g transform="translate(350, 110)">
+    <rect width="200" height="60" class="box" />
+    <text x="100" y="28" class="node-text">Incoming Request</text>
+    <text x="100" y="46" class="node-subtext">Googlebot / AI Scraper / User</text>
+  </g>
+
+  <!-- Cloudflare Edge Layer Node -->
+  <g transform="translate(325, 220)">
+    <rect width="250" height="80" class="box-highlight" />
+    <text x="125" y="30" class="node-text" style="fill: #FFC83B;">Cloudflare WAF Custom Rule</text>
+    <text x="125" y="50" class="node-subtext">not cf.client.bot AND</text>
+    <text x="125" y="66" class="node-subtext">http.user_agent contains "ChatGPT-User"</text>
+  </g>
+
+  <!-- Verified Search Engine (Right Branch) -->
+  <g transform="translate(600, 380)">
+    <rect width="220" height="70" class="box-success" />
+    <text x="110" y="30" class="node-text" style="fill: #2ecc71;">Origin Server (Allowed)</text>
+    <text x="110" y="50" class="node-subtext">200 OK - SEO Indexed</text>
+  </g>
+
+  <!-- Unverified Scrapers (Left Branch) -->
+  <g transform="translate(80, 380)">
+    <rect width="220" height="70" class="box-danger" />
+    <text x="110" y="30" class="node-text" style="fill: #e74c3c;">Edge Blocked</text>
+    <text x="110" y="50" class="node-subtext">403 Forbidden - Scraper Rejected</text>
+  </g>
+
+  <!-- Connecting Arrows -->
+  <!-- Incoming to WAF -->
+  <path d="M 450,170 L 450,220" class="arrow" />
+
+  <!-- WAF to Blocked (Left) -->
+  <path d="M 325,260 L 190,260 L 190,380" class="arrow-danger" />
+  <rect x="180" y="295" width="130" height="24" rx="4" fill="#1E0F0F" stroke="#e74c3c" stroke-width="1"/>
+  <text x="245" y="311" class="label-text" style="fill: #e74c3c;">Match (Unverified Bot)</text>
+
+  <!-- WAF to Allowed (Right) -->
+  <path d="M 575,260 L 710,260 L 710,380" class="arrow-success" />
+  <rect x="590" y="295" width="130" height="24" rx="4" fill="#0F1E13" stroke="#2ecc71" stroke-width="1"/>
+  <text x="655" y="311" class="label-text" style="fill: #2ecc71;">Bypass (cf.client.bot)</text>
+
+  <!-- Bottom Architecture Note -->
+  <text x="450" y="510" class="node-subtext" style="font-style: italic;">* Verified bots (Googlebot, Bingbot) automatically evaluate cf.client.bot to true, bypassing the block list completely.</text>
+</svg>
