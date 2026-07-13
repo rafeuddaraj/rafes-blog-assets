@@ -1,0 +1,89 @@
+<svg viewBox="0 0 800 450" xmlns="http://www.w3.org/2000/svg">
+  <style>
+    .bg { fill: #0F0F0F; }
+    .title { font-family: 'Courier New', monospace; font-size: 18px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
+    .subtitle { font-family: 'Courier New', monospace; font-size: 13px; fill: #888888; text-anchor: middle; }
+    .node-title { font-family: 'Courier New', monospace; font-size: 13px; font-weight: bold; fill: #FFFFFF; text-anchor: middle; }
+    .node-desc { font-family: 'Courier New', monospace; font-size: 11px; fill: #AAAAAA; text-anchor: middle; }
+    .box { fill: #181818; stroke: #FFC83B; stroke-width: 2; rx: 6; }
+    .box-blue { fill: #181818; stroke: #00E5FF; stroke-width: 2; rx: 6; }
+    .box-red { fill: #181818; stroke: #FF3B30; stroke-width: 2; rx: 6; }
+    .box-green { fill: #181818; stroke: #34C759; stroke-width: 2; rx: 6; }
+    .arrow { stroke: #FFFFFF; stroke-width: 2; marker-end: url(#arrow); fill: none; }
+    .formula { font-family: 'Courier New', monospace; font-size: 14px; font-weight: bold; fill: #FFC83B; text-anchor: middle; }
+  </style>
+
+  <defs>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L0,6 L9,3 z" fill="#FFFFFF" />
+    </marker>
+  </defs>
+
+  <rect width="100%" height="100%" class="bg" />
+
+  <text x="400" y="35" class="title">REED-SOLOMON ERROR CORRECTION ARCHITECTURE</text>
+  <text x="400" y="55" class="subtitle">Galois Field Math &amp; Parity Codeword Generation Workflow</text>
+
+  <!-- Step 1: Raw Payload -->
+  <g transform="translate(40, 100)">
+    <rect x="0" y="0" width="150" height="70" class="box" />
+    <text x="75" y="30" class="node-title">1. RAW PAYLOAD</text>
+    <text x="75" y="50" class="node-desc">Input Bit Stream</text>
+  </g>
+
+  <path d="M 190 135 L 230 135" class="arrow" />
+
+  <!-- Step 2: Galois Field Generator -->
+  <g transform="translate(240, 100)">
+    <rect x="0" y="0" width="180" height="70" class="box-blue" />
+    <text x="90" y="25" class="node-title" style="fill: #00E5FF;">2. GALOIS FIELD MATH</text>
+    <text x="90" y="43" class="node-desc">Polynomial Division</text>
+    <text x="90" y="58" class="node-desc">Generator: g(x)</text>
+  </g>
+
+  <path d="M 420 135 L 460 135" class="arrow" />
+
+  <!-- Step 3: Codeword Interleaving -->
+  <g transform="translate(470, 100)">
+    <rect x="0" y="0" width="160" height="70" class="box" />
+    <text x="80" y="25" class="node-title">3. PARITY BYTES</text>
+    <text x="80" y="43" class="node-desc">Data + EC Codewords</text>
+    <text x="80" y="58" class="node-desc">(Level L, M, Q, H)</text>
+  </g>
+
+  <!-- Arrow down to damaged state -->
+  <path d="M 550 170 L 550 230 L 490 230" class="arrow" />
+
+  <!-- Step 4: Physical Damage -->
+  <g transform="translate(320, 195)">
+    <rect x="0" y="0" width="160" height="70" class="box-red" />
+    <text x="80" y="25" class="node-title" style="fill: #FF3B30;">4. 30% DAMAGE</text>
+    <text x="80" y="43" class="node-desc">Scratches, Dirt, or</text>
+    <text x="80" y="58" class="node-desc">Embedded Brand Logo</text>
+  </g>
+
+  <path d="M 320 230 L 260 230" class="arrow" />
+
+  <!-- Step 5: Syndrome Decoder -->
+  <g transform="translate(90, 195)">
+    <rect x="0" y="0" width="160" height="70" class="box-blue" />
+    <text x="80" y="25" class="node-title" style="fill: #00E5FF;">5. SYNDROME DECODER</text>
+    <text x="80" y="43" class="node-desc">Error Magnitude &amp;</text>
+    <text x="80" y="58" class="node-desc">Position Calculation</text>
+  </g>
+
+  <!-- Arrow down to recovery -->
+  <path d="M 170 265 L 170 325 L 230 325" class="arrow" />
+
+  <!-- Step 6: Restored Data -->
+  <g transform="translate(240, 290)">
+    <rect x="0" y="0" width="320" height="70" class="box-green" />
+    <text x="160" y="30" class="node-title" style="fill: #34C759;">6. 100% DATA RECOVERY</text>
+    <text x="160" y="50" class="node-desc">Original Payload Restored Without Data Loss</text>
+  </g>
+
+  <!-- Bottom Analogy & Formula Section -->
+  <rect x="80" y="380" width="640" height="50" fill="#111111" stroke="#333333" rx="4" />
+  <text x="400" y="400" class="formula">c(x) = m(x) * x^R - [m(x) * x^R mod g(x)]</text>
+  <text x="400" y="418" class="subtitle">MENTAL MODEL: THE RAID BACKUP ANALOGY (Parity bit fault tolerance)</text>
+</svg>
