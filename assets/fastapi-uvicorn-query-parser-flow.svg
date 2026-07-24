@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 620" width="100%" height="100%" style="background-color: #0F0F0F; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <style>
+    .title { font-size: 20px; font-weight: 700; fill: #FFFFFF; text-anchor: middle; }
+    .subtitle { font-size: 13px; font-weight: 400; fill: #888888; text-anchor: middle; }
+    .box-text-main { font-size: 14px; font-weight: 600; fill: #FFFFFF; text-anchor: middle; }
+    .box-text-sub { font-size: 11.5px; font-weight: 400; fill: #888888; text-anchor: middle; }
+    .status-badge { font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .solid-arrow { fill: none; stroke-width: 2; }
+    .layer-box { fill: #1A1A1A; stroke: #333333; stroke-width: 1.5; rx: 8; }
+    .fail-box { fill: #1F0C0C; stroke: #FF5722; stroke-width: 2; rx: 8; }
+    .pass-box { fill: #0C1F12; stroke: #4BB543; stroke-width: 2; rx: 8; }
+    .path-label { font-size: 12px; font-weight: 700; text-anchor: middle; }
+    .code-text { font-size: 12px; font-family: 'Courier New', monospace; fill: #FFC83B; text-anchor: middle; }
+  </style>
+
+  <text x="450" y="40" class="title">Uvicorn Parser Trap: QUERY Method Routing</text>
+  <text x="450" y="60" class="subtitle">httptools (llhttp) vs h11, same request, two different outcomes</text>
+
+  <rect x="325" y="90" width="250" height="55" class="layer-box" />
+  <text x="450" y="115" class="box-text-main">Client Request</text>
+  <text x="450" y="134" class="code-text">fetch(url, {method: "query"})</text>
+
+  <path d="M 380 145 L 220 195" stroke="#888888" class="solid-arrow" marker-end="url(#arrow-grey)" />
+  <path d="M 520 145 L 680 195" stroke="#888888" class="solid-arrow" marker-end="url(#arrow-grey)" />
+
+  <g transform="translate(70, 200)">
+    <rect width="300" height="380" fill="#141414" stroke="#222222" stroke-width="1" rx="10" />
+    <text x="150" y="35" class="box-text-main" fill="#FF5722">--http httptools (default)</text>
+    <text x="150" y="55" class="box-text-sub">wraps llhttp, case-sensitive</text>
+
+    <rect x="30" y="80" width="240" height="55" class="layer-box" />
+    <text x="150" y="105" class="box-text-main">Method Table Lookup</text>
+    <text x="150" y="123" class="box-text-sub">"query" and "QUERY" are different tokens</text>
+
+    <path d="M 150 135 L 150 165" stroke="#FF5722" class="solid-arrow" marker-end="url(#arrow-red)" />
+
+    <rect x="30" y="175" width="240" height="60" class="fail-box" />
+    <text x="150" y="200" class="box-text-main" fill="#FF5722">400 Bad Request</text>
+    <text x="150" y="220" class="box-text-sub">Rejected before reaching app code</text>
+
+    <text x="150" y="270" class="path-label" fill="#888888">uvicorn --http httptools</text>
+    <text x="150" y="290" class="code-text">QUERY -&gt; 200</text>
+    <text x="150" y="310" class="code-text">query -&gt; 400</text>
+  </g>
+
+  <g transform="translate(530, 200)">
+    <rect width="300" height="380" fill="#141414" stroke="#222222" stroke-width="1" rx="10" />
+    <text x="150" y="35" class="box-text-main" fill="#4BB543">--http h11</text>
+    <text x="150" y="55" class="box-text-sub">pure Python, lenient parsing</text>
+
+    <rect x="30" y="80" width="240" height="55" class="layer-box" />
+    <text x="150" y="105" class="box-text-main">Method Table Lookup</text>
+    <text x="150" y="123" class="box-text-sub">accepted as a valid token</text>
+
+    <path d="M 150 135 L 150 165" stroke="#4BB543" class="solid-arrow" marker-end="url(#arrow-green)" />
+
+    <rect x="30" y="175" width="240" height="60" class="pass-box" />
+    <text x="150" y="200" class="box-text-main" fill="#4BB543">Starlette Routing</text>
+    <text x="150" y="220" class="box-text-sub">Reaches the FastAPI endpoint</text>
+
+    <text x="150" y="270" class="path-label" fill="#888888">uvicorn --http h11</text>
+    <text x="150" y="290" class="code-text">QUERY -&gt; 200</text>
+    <text x="150" y="310" class="code-text">query -&gt; 200 (then 405 if unmatched)</text>
+  </g>
+
+  <defs>
+    <marker id="arrow-grey" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#888888" />
+    </marker>
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FF5722" />
+    </marker>
+    <marker id="arrow-green" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#4BB543" />
+    </marker>
+  </defs>
+</svg>
