@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%" style="background-color: #0F0F0F; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Title -->
+  <text x="500" y="40" fill="#FFFFFF" font-size="24" font-weight="bold" text-anchor="middle" letter-spacing="1">OOP vs FP: Under-The-Hood Memory Workflow</text>
+
+  <!-- Left Side: OOP -->
+  <g transform="translate(50, 80)">
+    <!-- Section Title -->
+    <text x="200" y="0" fill="#FFC83B" font-size="20" font-weight="bold" text-anchor="middle">OOP: Mutable Heap Mutation</text>
+    <text x="200" y="25" fill="#888888" font-size="14" text-anchor="middle">In-place memory overwrite (Pointer Traversal)</text>
+
+    <!-- Heap Memory Block -->
+    <rect x="50" y="60" width="300" height="250" fill="none" stroke="#888888" stroke-width="2" stroke-dasharray="5,5" rx="10"/>
+    <text x="200" y="90" fill="#888888" font-size="14" text-anchor="middle">Heap Memory Allocation</text>
+
+    <!-- Object State 1 -->
+    <rect x="90" y="110" width="220" height="80" fill="#222222" stroke="#FFFFFF" stroke-width="2" rx="5"/>
+    <text x="200" y="140" fill="#FFFFFF" font-size="16" font-weight="bold" text-anchor="middle">User Instance (0x1A4)</text>
+    <text x="200" y="165" fill="#FFC83B" font-size="14" font-weight="bold" text-anchor="middle">email: old@email.com</text>
+
+    <!-- Method Call Arrow -->
+    <path d="M 200 190 L 200 240" fill="none" stroke="#FFC83B" stroke-width="3" marker-end="url(#arrowhead)"/>
+    <rect x="120" y="200" width="160" height="30" fill="#0F0F0F" stroke="none"/>
+    <text x="200" y="220" fill="#FFFFFF" font-size="14" text-anchor="middle">updateEmail()</text>
+
+    <!-- Overwritten State (Same Memory Address) -->
+    <rect x="90" y="250" width="220" height="40" fill="#222222" stroke="#FFC83B" stroke-width="2" rx="5"/>
+    <text x="200" y="275" fill="#FFC83B" font-size="14" font-weight="bold" text-anchor="middle">email: new@email.com</text>
+    <text x="200" y="335" fill="#FF4444" font-size="14" font-weight="bold" text-anchor="middle">Original data is lost / mutated</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="500" y1="80" x2="500" y2="450" stroke="#888888" stroke-width="2" stroke-dasharray="10,10" />
+
+  <!-- Right Side: FP -->
+  <g transform="translate(550, 80)">
+    <!-- Section Title -->
+    <text x="200" y="0" fill="#FFC83B" font-size="20" font-weight="bold" text-anchor="middle">FP: Structural Sharing</text>
+    <text x="200" y="25" fill="#888888" font-size="14" text-anchor="middle">Persistent Data Structures (Trie Tree)</text>
+
+    <!-- Trie Tree Original State -->
+    <circle cx="200" cy="80" r="25" fill="#222222" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="200" y="85" fill="#FFFFFF" font-size="14" text-anchor="middle">Root</text>
+
+    <!-- Branches -->
+    <path d="M 180 95 L 120 140" fill="none" stroke="#888888" stroke-width="2"/>
+    <path d="M 220 95 L 280 140" fill="none" stroke="#888888" stroke-width="2"/>
+
+    <!-- Left Child (Shared) -->
+    <circle cx="110" cy="160" r="25" fill="#222222" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="110" y="165" fill="#FFFFFF" font-size="14" text-anchor="middle">ID: 1</text>
+    <text x="110" y="200" fill="#888888" font-size="12" text-anchor="middle">(Shared Node)</text>
+
+    <!-- Right Child (Old State) -->
+    <circle cx="290" cy="160" r="25" fill="#222222" stroke="#FFFFFF" stroke-width="2"/>
+    <text x="290" y="165" fill="#FFFFFF" font-size="12" text-anchor="middle">old@..</text>
+    
+    <!-- Pure Function Pipeline -->
+    <path d="M 290 195 L 290 260" fill="none" stroke="#FFC83B" stroke-width="3" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+    <text x="350" y="235" fill="#FFFFFF" font-size="14" text-anchor="middle">pure func()</text>
+
+    <!-- New State Root -->
+    <circle cx="200" cy="270" r="25" fill="#222222" stroke="#FFC83B" stroke-width="2"/>
+    <text x="200" y="275" fill="#FFC83B" font-size="14" text-anchor="middle">New Root</text>
+
+    <!-- New Branches -->
+    <!-- Pointing back to shared node -->
+    <path d="M 180 255 L 120 185" fill="none" stroke="#FFC83B" stroke-width="2" marker-end="url(#arrowhead)"/>
+    <!-- Pointing to new mutated node -->
+    <path d="M 220 285 L 280 325" fill="none" stroke="#FFC83B" stroke-width="2"/>
+
+    <!-- New Right Child (New State) -->
+    <circle cx="290" cy="340" r="25" fill="#222222" stroke="#FFC83B" stroke-width="2"/>
+    <text x="290" y="345" fill="#FFC83B" font-size="12" font-weight="bold" text-anchor="middle">new@..</text>
+
+    <text x="200" y="390" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Old data preserved. No side-effects.</text>
+  </g>
+
+  <!-- Markers -->
+  <defs>
+    <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FFC83B" />
+    </marker>
+  </defs>
+</svg>

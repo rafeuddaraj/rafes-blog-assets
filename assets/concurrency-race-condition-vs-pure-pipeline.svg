@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 500" width="100%" height="100%" style="background-color: #0F0F0F; font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <!-- Title -->
+  <text x="500" y="40" fill="#FFFFFF" font-size="24" font-weight="bold" text-anchor="middle" letter-spacing="1">Concurrency Mechanics: Shared State vs Stateless Flow</text>
+
+  <!-- Left Side: Race Condition -->
+  <g transform="translate(50, 100)">
+    <text x="200" y="0" fill="#FF4444" font-size="20" font-weight="bold" text-anchor="middle">OOP: Race Condition</text>
+    <text x="200" y="25" fill="#888888" font-size="14" text-anchor="middle">Multiple threads accessing shared mutable state</text>
+
+    <!-- Threads -->
+    <rect x="50" y="70" width="100" height="40" fill="#333333" stroke="#FFFFFF" stroke-width="2" rx="5"/>
+    <text x="100" y="95" fill="#FFFFFF" font-size="14" text-anchor="middle">Thread A</text>
+
+    <rect x="250" y="70" width="100" height="40" fill="#333333" stroke="#FFFFFF" stroke-width="2" rx="5"/>
+    <text x="300" y="95" fill="#FFFFFF" font-size="14" text-anchor="middle">Thread B</text>
+
+    <!-- Collision Vectors -->
+    <path d="M 100 110 L 180 200" fill="none" stroke="#FF4444" stroke-width="3" marker-end="url(#red-arrowhead)"/>
+    <path d="M 300 110 L 220 200" fill="none" stroke="#FF4444" stroke-width="3" marker-end="url(#red-arrowhead)"/>
+
+    <!-- Shared Mutable Object -->
+    <rect x="120" y="210" width="160" height="60" fill="#222222" stroke="#FF4444" stroke-width="3" rx="8"/>
+    <text x="200" y="235" fill="#FFFFFF" font-size="16" font-weight="bold" text-anchor="middle">Shared Object</text>
+    <text x="200" y="255" fill="#FF4444" font-size="14" text-anchor="middle">Mutable Memory</text>
+
+    <!-- Explosion / Collision Icon -->
+    <path d="M 200 180 L 210 190 L 230 185 L 215 200 L 225 215 L 200 205 L 175 215 L 185 200 L 170 185 L 190 190 Z" fill="#FF4444"/>
+    
+    <text x="200" y="310" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Result: Data Corruption or Deadlock</text>
+    <text x="200" y="335" fill="#888888" font-size="14" text-anchor="middle">(Requires Mutex / Lock Overhead)</text>
+  </g>
+
+  <!-- Divider -->
+  <line x1="500" y1="80" x2="500" y2="420" stroke="#888888" stroke-width="2" stroke-dasharray="10,10" />
+
+  <!-- Right Side: Pure Pipeline -->
+  <g transform="translate(550, 100)">
+    <text x="200" y="0" fill="#FFC83B" font-size="20" font-weight="bold" text-anchor="middle">FP: Safe Parallel Execution</text>
+    <text x="200" y="25" fill="#888888" font-size="14" text-anchor="middle">Stateless pipelines with isolated execution frames</text>
+
+    <!-- Threads -->
+    <rect x="50" y="70" width="100" height="40" fill="#333333" stroke="#FFFFFF" stroke-width="2" rx="5"/>
+    <text x="100" y="95" fill="#FFFFFF" font-size="14" text-anchor="middle">Thread A</text>
+
+    <rect x="250" y="70" width="100" height="40" fill="#333333" stroke="#FFFFFF" stroke-width="2" rx="5"/>
+    <text x="300" y="95" fill="#FFFFFF" font-size="14" text-anchor="middle">Thread B</text>
+
+    <!-- Parallel Vectors -->
+    <path d="M 100 110 L 100 200" fill="none" stroke="#FFC83B" stroke-width="3" marker-end="url(#yellow-arrowhead)"/>
+    <path d="M 300 110 L 300 200" fill="none" stroke="#FFC83B" stroke-width="3" marker-end="url(#yellow-arrowhead)"/>
+
+    <!-- Isolated Pipelines -->
+    <rect x="40" y="210" width="120" height="60" fill="#222222" stroke="#FFC83B" stroke-width="2" rx="8"/>
+    <text x="100" y="235" fill="#FFFFFF" font-size="14" text-anchor="middle">Pure Func(A)</text>
+    <text x="100" y="255" fill="#888888" font-size="12" text-anchor="middle">Copy-on-write</text>
+
+    <rect x="240" y="210" width="120" height="60" fill="#222222" stroke="#FFC83B" stroke-width="2" rx="8"/>
+    <text x="300" y="235" fill="#FFFFFF" font-size="14" text-anchor="middle">Pure Func(B)</text>
+    <text x="300" y="255" fill="#888888" font-size="12" text-anchor="middle">Copy-on-write</text>
+
+    <text x="200" y="310" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Result: Thread Safe (Zero Collision)</text>
+    <text x="200" y="335" fill="#888888" font-size="14" text-anchor="middle">(No Locks Needed, Highly Scalable)</text>
+  </g>
+
+  <!-- Markers -->
+  <defs>
+    <marker id="red-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FF4444" />
+    </marker>
+    <marker id="yellow-arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+      <polygon points="0 0, 10 3.5, 0 7" fill="#FFC83B" />
+    </marker>
+  </defs>
+</svg>
