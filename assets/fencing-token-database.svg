@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="100%" height="100%" style="background-color: #0F0F0F; font-family: monospace;">
+    <rect width="800" height="400" fill="#0F0F0F" />
+    
+    <!-- Workers -->
+    <rect x="50" y="80" width="160" height="60" rx="5" fill="#1A1A1A" stroke="#888888" stroke-width="2"/>
+    <text x="130" y="105" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Worker A</text>
+    <text x="130" y="125" fill="#FF4444" font-size="12" text-anchor="middle">Token: 103 (Stale)</text>
+
+    <rect x="50" y="260" width="160" height="60" rx="5" fill="#1A1A1A" stroke="#888888" stroke-width="2"/>
+    <text x="130" y="285" fill="#FFFFFF" font-size="14" font-weight="bold" text-anchor="middle">Worker B</text>
+    <text x="130" y="305" fill="#00AAFF" font-size="12" text-anchor="middle">Token: 104 (Active)</text>
+
+    <!-- Database -->
+    <rect x="450" y="120" width="300" height="160" rx="8" fill="#1A1A1A" stroke="#FFC83B" stroke-width="3"/>
+    <text x="600" y="150" fill="#FFC83B" font-size="18" font-weight="bold" text-anchor="middle">PostgreSQL Database</text>
+    
+    <rect x="470" y="170" width="260" height="90" fill="#0F0F0F" stroke="#888888" stroke-width="1"/>
+    <text x="600" y="195" fill="#FFFFFF" font-size="14" text-anchor="middle">Row ID: 123</text>
+    <text x="600" y="220" fill="#FFFFFF" font-size="14" text-anchor="middle">Value: "New Data"</text>
+    <text x="600" y="245" fill="#00AAFF" font-size="14" font-weight="bold" text-anchor="middle">last_fencing_token: 104</text>
+
+    <!-- Operations -->
+    <!-- B writes successfully -->
+    <path d="M 210 290 L 430 240" stroke="#00AAFF" stroke-width="3" marker-end="url(#arrow-blue)"/>
+    <text x="320" y="295" fill="#00AAFF" font-size="12" font-weight="bold" text-anchor="middle">UPDATE (Token 104)</text>
+    <circle cx="440" cy="235" r="10" fill="#00AAFF"/>
+    <text x="440" y="239" fill="#0F0F0F" font-size="12" font-weight="bold" text-anchor="middle">&#10003;</text>
+
+    <!-- A attempts stale write -->
+    <path d="M 210 110 L 430 160" stroke="#FF4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+    <text x="320" y="125" fill="#FF4444" font-size="12" font-weight="bold" text-anchor="middle">UPDATE (Token 103)</text>
+    <circle cx="440" cy="165" r="10" fill="#FF4444"/>
+    <text x="440" y="169" fill="#0F0F0F" font-size="12" font-weight="bold" text-anchor="middle">X</text>
+
+    <!-- Reject condition text -->
+    <text x="320" y="160" fill="#FF4444" font-size="12" text-anchor="middle">103 &lt; 104 =&gt; REJECT</text>
+
+    <defs>
+        <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#FF4444" />
+        </marker>
+        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#00AAFF" />
+        </marker>
+    </defs>
+</svg>

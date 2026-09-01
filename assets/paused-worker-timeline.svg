@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="100%" height="100%" style="background-color: #0F0F0F; font-family: monospace;">
+    <rect width="800" height="450" fill="#0F0F0F" />
+    
+    <text x="400" y="30" fill="#FFFFFF" font-size="18" font-weight="bold" text-anchor="middle">The Paused Worker Stale Write Scenario</text>
+
+    <!-- Nodes -->
+    <text x="150" y="70" fill="#FFFFFF" font-size="16" font-weight="bold" text-anchor="middle">Worker A</text>
+    <text x="400" y="70" fill="#FFC83B" font-size="16" font-weight="bold" text-anchor="middle">Lock Service</text>
+    <text x="650" y="70" fill="#FFFFFF" font-size="16" font-weight="bold" text-anchor="middle">Worker B</text>
+
+    <line x1="150" y1="80" x2="150" y2="420" stroke="#888888" stroke-width="2"/>
+    <line x1="400" y1="80" x2="400" y2="420" stroke="#FFC83B" stroke-width="2"/>
+    <line x1="650" y1="80" x2="650" y2="420" stroke="#888888" stroke-width="2"/>
+
+    <!-- A Acquires -->
+    <path d="M 150 110 L 400 110" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arrow-white)"/>
+    <text x="275" y="100" fill="#FFFFFF" font-size="12" text-anchor="middle">Acquire Lease</text>
+
+    <!-- A gets Paused -->
+    <rect x="130" y="140" width="40" height="200" fill="#FF4444" fill-opacity="0.3" stroke="#FF4444" stroke-width="2"/>
+    <text x="110" y="240" fill="#FF4444" font-size="14" font-weight="bold" transform="rotate(-90 110,240)">GC PAUSE</text>
+
+    <!-- Lease Expires -->
+    <circle cx="400" cy="180" r="6" fill="#FF4444"/>
+    <text x="420" y="185" fill="#FF4444" font-size="12" font-weight="bold">Lease Expired</text>
+
+    <!-- B Acquires -->
+    <path d="M 650 210 L 400 210" stroke="#00AAFF" stroke-width="2" marker-end="url(#arrow-blue)"/>
+    <text x="525" y="200" fill="#00AAFF" font-size="12" text-anchor="middle">Acquire New Lease</text>
+    
+    <!-- B Writes -->
+    <path d="M 650 260 L 800 260" stroke="#00AAFF" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow-blue)"/>
+    <text x="725" y="250" fill="#00AAFF" font-size="12" text-anchor="middle">Writes Data</text>
+
+    <!-- A Resumes -->
+    <text x="230" y="360" fill="#FFFFFF" font-size="12" font-weight="bold">A Resumes Unaware</text>
+    
+    <!-- A writes Stale -->
+    <path d="M 150 380 L 800 380" stroke="#FF4444" stroke-width="3" marker-end="url(#arrow-red)"/>
+    <text x="475" y="370" fill="#FF4444" font-size="14" font-weight="bold" text-anchor="middle">Stale Data Write (System Corrupted!)</text>
+
+    <defs>
+        <marker id="arrow-white" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#FFFFFF" />
+        </marker>
+        <marker id="arrow-red" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#FF4444" />
+        </marker>
+        <marker id="arrow-blue" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto" markerUnits="strokeWidth">
+            <path d="M0,0 L0,6 L9,3 z" fill="#00AAFF" />
+        </marker>
+    </defs>
+</svg>

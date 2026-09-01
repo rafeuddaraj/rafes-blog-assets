@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-labelledby="title desc">
+  <title id="title">Redis lock split brain scenario</title>
+  <desc id="desc">Worker A acquires a lock on a Redis primary. The primary crashes before replication completes. The replica is promoted, Worker B acquires the lock, and both workers believe they own the lock.</desc>
+
+  <defs>
+    <marker id="arrow-white" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF"/>
+    </marker>
+
+    <marker id="arrow-red" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FF4D4D"/>
+    </marker>
+
+    <marker id="arrow-blue" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="10" markerHeight="10" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#00AAFF"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" fill="#0F0F0F"/>
+
+  <!-- Workers -->
+  <rect x="90" y="80" width="270" height="105" rx="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="4"/>
+  <text x="225" y="146" fill="#FFFFFF" font-family="monospace" font-size="32" font-weight="700" text-anchor="middle">Worker A</text>
+
+  <rect x="1240" y="80" width="270" height="105" rx="12" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="4"/>
+  <text x="1375" y="146" fill="#FFFFFF" font-family="monospace" font-size="32" font-weight="700" text-anchor="middle">Worker B</text>
+
+  <!-- Redis Primary -->
+  <rect x="570" y="270" width="360" height="145" rx="14" fill="#2A2A2A" stroke="#FFC83B" stroke-width="5"/>
+  <text x="750" y="330" fill="#FFC83B" font-family="monospace" font-size="30" font-weight="700" text-anchor="middle">Redis Primary</text>
+  <text x="750" y="372" fill="#999999" font-family="monospace" font-size="23" text-anchor="middle">Contains Lock</text>
+
+  <!-- Worker A -> Primary -->
+  <path d="M 225 185 L 575 300" fill="none" stroke="#FFFFFF" stroke-width="4" marker-end="url(#arrow-white)"/>
+
+  <text x="315" y="252" fill="#FFFFFF" font-family="monospace" font-size="24" font-weight="600">1. Acquires Lock</text>
+
+  <!-- Replication -->
+  <path d="M 750 415 L 750 575" fill="none" stroke="#FF4D4D" stroke-width="4" stroke-dasharray="12 10" marker-end="url(#arrow-red)"/>
+
+  <text x="790" y="505" fill="#FF4D4D" font-family="monospace" font-size="23" font-weight="600">X Sync Fails</text>
+
+  <!-- Primary crash -->
+  <path d="M 600 235 L 900 450" fill="none" stroke="#FF4D4D" stroke-width="8" stroke-linecap="round"/>
+  <path d="M 900 235 L 600 450" fill="none" stroke="#FF4D4D" stroke-width="8" stroke-linecap="round"/>
+
+  <text x="750" y="215" fill="#FF4D4D" font-family="monospace" font-size="30" font-weight="700" text-anchor="middle">2. Primary Crashes!</text>
+
+  <!-- Redis Replica -->
+  <rect x="570" y="575" width="360" height="145" rx="14" fill="#2A2A2A" stroke="#FFC83B" stroke-width="5"/>
+
+  <text x="750" y="635" fill="#AAAAAA" font-family="monospace" font-size="30" font-weight="700" text-anchor="middle">Redis Replica</text>
+
+  <text x="750" y="677" fill="#888888" font-family="monospace" font-size="22" text-anchor="middle">Async Sync (Delayed)</text>
+
+  <!-- Promotion -->
+  <text x="990" y="620" fill="#FFC83B" font-family="monospace" font-size="25" font-weight="700">3. Promoted to Primary</text>
+
+  <text x="990" y="657" fill="#888888" font-family="monospace" font-size="21">(Lock state lost)</text>
+
+  <!-- Worker B -> new Primary -->
+  <path d="M 1375 185 L 925 605" fill="none" stroke="#00AAFF" stroke-width="4" marker-end="url(#arrow-blue)"/>
+
+  <text x="1120" y="360" fill="#00AAFF" font-family="monospace" font-size="24" font-weight="600">4. Acquires Lock</text>
+
+  <text x="1120" y="395" fill="#00AAFF" font-family="monospace" font-size="24" font-weight="600">on new Primary</text>
+
+  <!-- Split brain result -->
+  <rect x="350" y="790" width="800" height="65" rx="10" fill="#FF4D4D" fill-opacity="0.12" stroke="#FF4D4D" stroke-width="4"/>
+
+  <text x="750" y="833" fill="#FF4D4D" font-family="monospace" font-size="27" font-weight="700" text-anchor="middle">SPLIT BRAIN: Both A and B own the Lock!</text>
+</svg>
