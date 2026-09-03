@@ -1,0 +1,19 @@
+<svg width="800" height="350" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="50" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Little's Law for Connection Pools</text>
+  <text x="400" y="80" fill="#FFC83B" font-family="sans-serif" font-size="16" text-anchor="middle">Concurrency = Throughput × Latency</text>
+  
+  <rect x="100" y="120" width="250" height="150" rx="8" fill="#1A1A1A" stroke="#00FF00" stroke-width="2"/>
+  <text x="225" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Scenario A: Fast Queries</text>
+  <text x="225" y="190" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">500 req/sec</text>
+  <text x="225" y="210" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Avg Hold: 0.1s (100ms)</text>
+  <text x="225" y="240" fill="#00FF00" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Needs 50 Connections</text>
+
+  <rect x="450" y="120" width="250" height="150" rx="8" fill="#1A1A1A" stroke="#FF3B3B" stroke-width="2"/>
+  <text x="575" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Scenario B: Slower Queries</text>
+  <text x="575" y="190" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">500 req/sec (Same Traffic)</text>
+  <text x="575" y="210" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Avg Hold: 0.5s (500ms)</text>
+  <text x="575" y="240" fill="#FF3B3B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Needs 250 Connections</text>
+  
+  <text x="400" y="320" fill="#888888" font-family="sans-serif" font-size="14" text-anchor="middle">Query speed directly dictates how large your connection pool needs to be.</text>
+</svg>

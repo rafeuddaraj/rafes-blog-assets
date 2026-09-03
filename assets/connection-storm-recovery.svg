@@ -1,0 +1,20 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="40" fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Connection Storm &amp; Jitter</text>
+
+  <rect x="50" y="80" width="300" height="280" rx="8" fill="#1A1A1A" stroke="#FF3B3B" stroke-width="2"/>
+  <text x="200" y="110" fill="#FF3B3B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Without Jitter</text>
+  <text x="200" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">DB Restarts</text>
+  <text x="200" y="190" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">App1 retries at T+1s</text>
+  <text x="200" y="210" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">App2 retries at T+1s</text>
+  <text x="200" y="230" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">App100 retries at T+1s</text>
+  <text x="200" y="270" fill="#FFC83B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Huge Spike -> DB Crashes Again</text>
+
+  <rect x="450" y="80" width="300" height="280" rx="8" fill="#1A1A1A" stroke="#00FF00" stroke-width="2"/>
+  <text x="600" y="110" fill="#00FF00" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">With Jitter &amp; Backoff</text>
+  <text x="600" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">DB Restarts</text>
+  <text x="600" y="190" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">App1 retries at T+1.2s</text>
+  <text x="600" y="210" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">App2 retries at T+1.8s</text>
+  <text x="600" y="230" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">App100 retries at T+2.5s</text>
+  <text x="600" y="270" fill="#FFC83B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Load Spread -> DB Recovers</text>
+</svg>

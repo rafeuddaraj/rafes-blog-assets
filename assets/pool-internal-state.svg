@@ -1,0 +1,23 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <rect x="150" y="50" width="500" height="300" rx="8" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="400" y="85" fill="#FFC83B" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Connection Pool Internal State</text>
+  
+  <text x="400" y="115" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Max Size: 10</text>
+  
+  <rect x="200" y="140" width="180" height="150" rx="4" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="290" y="170" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Active Connections</text>
+  <circle cx="250" cy="210" r="15" fill="#FFC83B"/>
+  <circle cx="290" cy="210" r="15" fill="#FFC83B"/>
+  <circle cx="330" cy="210" r="15" fill="#FFC83B"/>
+  <circle cx="270" cy="250" r="15" fill="#FFC83B"/>
+  <circle cx="310" cy="250" r="15" fill="#FFC83B"/>
+  <text x="290" y="280" fill="#888888" font-family="sans-serif" font-size="12" text-anchor="middle">Executing Queries (5)</text>
+
+  <rect x="420" y="140" width="180" height="150" rx="4" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="510" y="170" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Idle Connections</text>
+  <circle cx="470" cy="210" r="15" fill="#888888"/>
+  <circle cx="510" cy="210" r="15" fill="#888888"/>
+  <circle cx="550" cy="210" r="15" fill="#888888"/>
+  <text x="510" y="280" fill="#888888" font-family="sans-serif" font-size="12" text-anchor="middle">Ready to Reuse (3)</text>
+</svg>

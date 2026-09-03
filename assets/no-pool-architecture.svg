@@ -1,0 +1,25 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <rect x="100" y="50" width="150" height="300" rx="8" fill="#1A1A1A" stroke="#888888" stroke-width="2"/>
+  <text x="175" y="85" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">App (No Pool)</text>
+  <rect x="550" y="50" width="150" height="300" rx="8" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="625" y="85" fill="#FFC83B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Database</text>
+  <text x="625" y="115" fill="#FFC83B" font-family="sans-serif" font-size="14" text-anchor="middle">Overwhelmed</text>
+  
+  <g stroke="#FFFFFF" stroke-width="1.5" marker-end="url(#arrow-small)">
+    <path d="M 250 120 L 540 120" />
+    <path d="M 250 140 L 540 140" />
+    <path d="M 250 160 L 540 160" />
+    <path d="M 250 180 L 540 180" />
+    <path d="M 250 200 L 540 200" />
+    <path d="M 250 220 L 540 220" />
+    <path d="M 250 240 L 540 240" />
+    <path d="M 250 260 L 540 260" />
+  </g>
+  <text x="395" y="100" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">100 Concurrent Requests = 100 New Connections</text>
+  <defs>
+    <marker id="arrow-small" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="5" markerHeight="5" orient="auto">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF"/>
+    </marker>
+  </defs>
+</svg>

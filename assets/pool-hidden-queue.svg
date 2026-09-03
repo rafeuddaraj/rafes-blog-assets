@@ -1,0 +1,25 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <rect x="50" y="150" width="150" height="100" rx="8" fill="#1A1A1A" stroke="#888888" stroke-width="2"/>
+  <text x="125" y="195" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">100 Requests</text>
+  <text x="125" y="220" fill="#888888" font-family="sans-serif" font-size="12" text-anchor="middle">Simultaneously</text>
+  
+  <path d="M 200 200 L 290 200" stroke="#FFFFFF" stroke-width="2" marker-end="url(#a-rt)"/>
+  
+  <rect x="300" y="50" width="450" height="300" rx="8" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="525" y="85" fill="#FFC83B" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Connection Pool (Max: 10)</text>
+  
+  <rect x="330" y="120" width="200" height="200" rx="4" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="430" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Active</text>
+  <text x="430" y="220" fill="#FFFFFF" font-family="sans-serif" font-size="24" text-anchor="middle">10 Conns</text>
+  <text x="430" y="250" fill="#888888" font-family="sans-serif" font-size="12" text-anchor="middle">Talking to DB</text>
+
+  <rect x="550" y="120" width="170" height="200" rx="4" fill="#2A2A2A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="635" y="150" fill="#FFC83B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Hidden Queue</text>
+  <text x="635" y="220" fill="#FFC83B" font-family="sans-serif" font-size="24" text-anchor="middle">90 Requests</text>
+  <text x="635" y="250" fill="#888888" font-family="sans-serif" font-size="12" text-anchor="middle">Waiting for Release</text>
+  
+  <defs>
+    <marker id="a-rt" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF"/></marker>
+  </defs>
+</svg>

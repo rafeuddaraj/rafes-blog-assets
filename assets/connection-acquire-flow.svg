@@ -1,0 +1,38 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <rect x="300" y="30" width="200" height="50" rx="4" fill="#1A1A1A" stroke="#FFFFFF" stroke-width="2"/>
+  <text x="400" y="60" fill="#FFFFFF" font-family="sans-serif" font-size="16" text-anchor="middle">pool.acquire()</text>
+  
+  <path d="M 400 80 L 400 120" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-down)"/>
+  
+  <polygon points="400,120 500,160 400,200 300,160" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="400" y="165" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Idle Conn?</text>
+  
+  <path d="M 300 160 L 200 160 L 200 200" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-down)"/>
+  <text x="250" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Yes</text>
+  
+  <rect x="120" y="200" width="160" height="50" rx="4" fill="#2A2A2A" stroke="#888888" stroke-width="2"/>
+  <text x="200" y="230" fill="#888888" font-family="sans-serif" font-size="14" text-anchor="middle">Return Connection</text>
+  
+  <path d="M 500 160 L 600 160 L 600 200" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-down)"/>
+  <text x="550" y="150" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">No</text>
+  
+  <polygon points="600,200 700,240 600,280 500,240" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="600" y="245" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Pool Full?</text>
+  
+  <path d="M 500 240 L 400 240 L 400 300" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-down)"/>
+  <text x="450" y="230" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">No</text>
+  
+  <rect x="320" y="300" width="160" height="50" rx="4" fill="#2A2A2A" stroke="#888888" stroke-width="2"/>
+  <text x="400" y="330" fill="#888888" font-family="sans-serif" font-size="14" text-anchor="middle">Create New Conn</text>
+  
+  <path d="M 700 240 L 760 240 L 760 300" stroke="#FFFFFF" stroke-width="2" marker-end="url(#arr-down)"/>
+  <text x="730" y="230" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Yes</text>
+  
+  <rect x="680" y="300" width="160" height="50" rx="4" fill="#2A2A2A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="760" y="330" fill="#FFC83B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Push to Queue</text>
+  
+  <defs>
+    <marker id="arr-down" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 5 10 L 10 0 z" fill="#FFFFFF"/></marker>
+  </defs>
+</svg>

@@ -1,0 +1,25 @@
+<svg width="800" height="400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <g transform="translate(150, 20)">
+    <rect x="0" y="0" width="500" height="60" rx="4" fill="#1A1A1A" stroke="#888888" stroke-width="2"/>
+    <text x="250" y="35" fill="#FFFFFF" font-family="sans-serif" font-size="16" text-anchor="middle">1. All Connections Busy (Slow Queries/Traffic Spike)</text>
+    
+    <path d="M 250 60 L 250 100" stroke="#FFFFFF" stroke-width="2" marker-end="url(#a-dn)"/>
+    
+    <rect x="0" y="100" width="500" height="60" rx="4" fill="#1A1A1A" stroke="#888888" stroke-width="2"/>
+    <text x="250" y="135" fill="#FFFFFF" font-family="sans-serif" font-size="16" text-anchor="middle">2. New Requests pushed to Queue</text>
+    
+    <path d="M 250 160 L 250 200" stroke="#FFFFFF" stroke-width="2" marker-end="url(#a-dn)"/>
+    
+    <rect x="0" y="200" width="500" height="60" rx="4" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+    <text x="250" y="235" fill="#FFC83B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">3. Wait Time Increases exponentially</text>
+    
+    <path d="M 250 260 L 250 300" stroke="#FFFFFF" stroke-width="2" marker-end="url(#a-dn)"/>
+    
+    <rect x="0" y="300" width="500" height="60" rx="4" fill="#2A2A2A" stroke="#FF3B3B" stroke-width="2"/>
+    <text x="250" y="335" fill="#FF3B3B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">4. PoolTimeoutError / API Cascading Failure</text>
+  </g>
+  <defs>
+    <marker id="a-dn" viewBox="0 0 10 10" refX="5" refY="9" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 5 10 L 10 0 z" fill="#FFFFFF"/></marker>
+  </defs>
+</svg>

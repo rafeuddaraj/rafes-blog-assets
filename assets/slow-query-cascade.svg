@@ -1,0 +1,35 @@
+<svg width="800" height="350" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <rect x="50" y="50" width="200" height="250" rx="8" fill="#1A1A1A" stroke="#888888" stroke-width="2"/>
+  <text x="150" y="85" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Endpoints</text>
+  
+  <rect x="70" y="120" width="160" height="40" fill="#2A2A2A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="150" y="145" fill="#FFC83B" font-family="sans-serif" font-size="12" text-anchor="middle">/reports (Slow Query)</text>
+  
+  <rect x="70" y="180" width="160" height="40" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="150" y="205" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">/health (Fast Query)</text>
+  
+  <rect x="70" y="240" width="160" height="40" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="150" y="265" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">/users (Fast Query)</text>
+
+  <rect x="350" y="50" width="400" height="250" rx="8" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="550" y="85" fill="#FFC83B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Connection Pool</text>
+  
+  <rect x="370" y="120" width="360" height="40" fill="#2A2A2A" stroke="#FFC83B" stroke-width="2"/>
+  <text x="550" y="145" fill="#FFFFFF" font-family="sans-serif" font-size="12" text-anchor="middle">Conn 1 to 10 ALL held by /reports for 10 seconds</text>
+  
+  <rect x="370" y="180" width="360" height="40" fill="#2A2A2A" stroke="#FF3B3B" stroke-width="2"/>
+  <text x="550" y="205" fill="#FF3B3B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">/health STUCK in Queue (No connections left)</text>
+  
+  <rect x="370" y="240" width="360" height="40" fill="#2A2A2A" stroke="#FF3B3B" stroke-width="2"/>
+  <text x="550" y="265" fill="#FF3B3B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">/users STUCK in Queue (No connections left)</text>
+
+  <path d="M 250 140 L 360 140" stroke="#FFC83B" stroke-width="2" marker-end="url(#a-rt-y)"/>
+  <path d="M 250 200 L 360 200" stroke="#FFFFFF" stroke-width="2" marker-end="url(#a-rt-w)"/>
+  <path d="M 250 260 L 360 260" stroke="#FFFFFF" stroke-width="2" marker-end="url(#a-rt-w)"/>
+
+  <defs>
+    <marker id="a-rt-y" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#FFC83B"/></marker>
+    <marker id="a-rt-w" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#FFFFFF"/></marker>
+  </defs>
+</svg>

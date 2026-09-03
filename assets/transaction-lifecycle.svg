@@ -1,0 +1,24 @@
+<svg width="800" height="250" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 250">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="40" fill="#FFFFFF" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Transaction Lifecycle on a Single Connection</text>
+  
+  <rect x="50" y="80" width="700" height="60" rx="4" fill="#1A1A1A" stroke="#FFC83B" stroke-width="2"/>
+  
+  <rect x="70" y="90" width="100" height="40" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="120" y="115" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">BEGIN</text>
+  
+  <rect x="220" y="90" width="150" height="40" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="295" y="115" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">UPDATE users</text>
+  
+  <rect x="420" y="90" width="150" height="40" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="495" y="115" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">INSERT logs</text>
+
+  <rect x="620" y="90" width="100" height="40" fill="#2A2A2A" stroke="#888888" stroke-width="1"/>
+  <text x="670" y="115" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">COMMIT</text>
+
+  <path d="M 170 110 L 210 110" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M 370 110 L 410 110" stroke="#FFFFFF" stroke-width="2"/>
+  <path d="M 570 110 L 610 110" stroke="#FFFFFF" stroke-width="2"/>
+
+  <text x="400" y="180" fill="#FFC83B" font-family="sans-serif" font-size="14" text-anchor="middle">Connection is LOCKED and unavailable to others during this entire period</text>
+</svg>
