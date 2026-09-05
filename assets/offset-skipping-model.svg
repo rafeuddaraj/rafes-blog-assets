@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="50" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">The Offset Skipping Mental Model</text>
+  
+  <!-- Database Rows Flow -->
+  <g transform="translate(50, 120)">
+    <!-- Skipped Rows -->
+    <rect x="0" y="0" width="400" height="60" fill="#222222" rx="4" stroke="#444444" stroke-width="2"/>
+    <text x="200" y="35" fill="#888888" font-family="monospace" font-size="16" text-anchor="middle">Row 1 to 10,000 (Scanned and Tossed)</text>
+    
+    <!-- Marker -->
+    <path d="M 400 30 L 440 30" stroke="#FFC83B" stroke-width="3" stroke-dasharray="4,4"/>
+    <polygon points="440,25 450,30 440,35" fill="#FFC83B"/>
+    
+    <!-- Target Rows -->
+    <rect x="460" y="0" width="200" height="60" fill="#2A2A00" rx="4" stroke="#FFC83B" stroke-width="2"/>
+    <text x="560" y="35" fill="#FFC83B" font-family="monospace" font-size="16" text-anchor="middle">LIMIT 20 Rows</text>
+  </g>
+  
+  <text x="250" y="220" fill="#FF4444" font-family="sans-serif" font-size="14" text-anchor="middle">Expensive Offset Waste</text>
+  <text x="610" y="220" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Actual Response Payload</text>
+</svg>

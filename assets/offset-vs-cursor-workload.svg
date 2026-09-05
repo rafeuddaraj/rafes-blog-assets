@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="50" fill="#FFFFFF" font-family="sans-serif" font-size="24" font-weight="bold" text-anchor="middle">Page 1 vs Page 50,000 DB Workload</text>
+  
+  <!-- Page 1 Bar -->
+  <text x="150" y="150" fill="#888888" font-family="monospace" font-size="18" text-anchor="end">Page 1</text>
+  <rect x="180" y="125" width="40" height="30" fill="#FFC83B" rx="4"/>
+  <text x="235" y="145" fill="#FFFFFF" font-family="sans-serif" font-size="14">Process 20 rows, Return 20 rows (O(1))</text>
+
+  <!-- Page 50000 Bar -->
+  <text x="150" y="250" fill="#888888" font-family="monospace" font-size="18" text-anchor="end">Page 50,000</text>
+  <rect x="180" y="225" width="450" height="30" fill="#FF4444" rx="4"/>
+  <rect x="635" y="225" width="40" height="30" fill="#FFC83B" rx="4"/>
+  <text x="190" y="245" fill="#FFFFFF" font-family="sans-serif" font-size="14">Skip 1,000,000 rows (O(N) DB Workload)</text>
+  <text x="685" y="245" fill="#FFFFFF" font-family="sans-serif" font-size="14">Return 20 rows</text>
+  
+  <!-- Boundary Line -->
+  <line x1="180" y1="80" x2="180" y2="350" stroke="#888888" stroke-dasharray="5,5"/>
+  <text x="180" y="370" fill="#888888" font-family="sans-serif" font-size="14" text-anchor="middle">Start</text>
+</svg>

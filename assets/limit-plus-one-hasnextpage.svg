@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="40" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">LIMIT + 1 Trick for hasNextPage</text>
+
+  <!-- Database Layer -->
+  <rect x="100" y="80" width="250" height="200" fill="#111" stroke="#444" rx="8"/>
+  <text x="225" y="110" fill="#FFF" font-family="sans-serif" font-size="16" text-anchor="middle">Database Returns (21 Rows)</text>
+  
+  <rect x="150" y="130" width="150" height="80" fill="#2A2A00" stroke="#FFC83B"/>
+  <text x="225" y="175" fill="#FFC83B" font-family="monospace" font-size="14" text-anchor="middle">Rows 1 to 20</text>
+  
+  <rect x="150" y="210" width="150" height="30" fill="#440000" stroke="#FF4444"/>
+  <text x="225" y="230" fill="#FF4444" font-family="monospace" font-size="14" text-anchor="middle">Row 21</text>
+
+  <!-- API Layer -->
+  <path d="M 360 170 L 440 170" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+  
+  <rect x="450" y="80" width="250" height="200" fill="#111" stroke="#FFC83B" rx="8"/>
+  <text x="575" y="110" fill="#FFF" font-family="sans-serif" font-size="16" text-anchor="middle">API Response</text>
+  
+  <rect x="500" y="130" width="150" height="80" fill="#2A2A00" stroke="#FFC83B"/>
+  <text x="575" y="175" fill="#FFC83B" font-family="monospace" font-size="14" text-anchor="middle">Data Array (20)</text>
+  
+  <rect x="500" y="220" width="150" height="40" fill="#222" stroke="#888"/>
+  <text x="575" y="245" fill="#FFF" font-family="monospace" font-size="12" text-anchor="middle">hasNextPage: true</text>
+  
+  <!-- Indicator -->
+  <path d="M 305 225 Q 400 280 495 240" fill="none" stroke="#FF4444" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrowRed)"/>
+  <text x="400" y="295" fill="#FF4444" font-family="sans-serif" font-size="12" text-anchor="middle">Row 21 sets flag, then is discarded</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+    </marker>
+    <marker id="arrowRed" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#FF4444"/>
+    </marker>
+  </defs>
+</svg>

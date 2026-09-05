@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="40" fill="#FFFFFF" font-family="sans-serif" font-size="20" font-weight="bold" text-anchor="middle">Production API Request Lifecycle</text>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#888"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(300, 70)">
+    <rect x="0" y="0" width="200" height="35" fill="#222" stroke="#888" rx="4"/>
+    <text x="100" y="22" fill="#FFF" font-family="sans-serif" font-size="12" text-anchor="middle">Client Request (opaque token)</text>
+    <line x1="100" y1="35" x2="100" y2="60" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="0" y="60" width="200" height="35" fill="#222" stroke="#FFC83B" rx="4"/>
+    <text x="100" y="82" fill="#FFF" font-family="sans-serif" font-size="12" text-anchor="middle">Decode &amp; Validate Token</text>
+    <line x1="100" y1="95" x2="100" y2="120" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="0" y="120" width="200" height="35" fill="#222" stroke="#FFC83B" rx="4"/>
+    <text x="100" y="142" fill="#FFF" font-family="sans-serif" font-size="12" text-anchor="middle">Build Keyset Query (SQL)</text>
+    <line x1="100" y1="155" x2="100" y2="180" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="0" y="180" width="200" height="35" fill="#2A2A00" stroke="#FFC83B" rx="4"/>
+    <text x="100" y="202" fill="#FFC83B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">DB Composite Index Scan</text>
+    <line x1="100" y1="215" x2="100" y2="240" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="0" y="240" width="200" height="35" fill="#2A2A00" stroke="#FFC83B" rx="4"/>
+    <text x="100" y="262" fill="#FFC83B" font-family="sans-serif" font-size="12" font-weight="bold" text-anchor="middle">Fetch LIMIT + 1 Rows</text>
+    <line x1="100" y1="275" x2="100" y2="300" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="0" y="300" width="200" height="35" fill="#222" stroke="#FFC83B" rx="4"/>
+    <text x="100" y="322" fill="#FFF" font-family="sans-serif" font-size="12" text-anchor="middle">Determine hasNextPage</text>
+    <line x1="100" y1="335" x2="100" y2="360" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="0" y="360" width="200" height="35" fill="#222" stroke="#FFC83B" rx="4"/>
+    <text x="100" y="382" fill="#FFF" font-family="sans-serif" font-size="12" text-anchor="middle">Encode New Next Cursor</text>
+    <line x1="100" y1="395" x2="100" y2="420" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+
+    <rect x="0" y="420" width="200" height="35" fill="#222" stroke="#00FF00" rx="4"/>
+    <text x="100" y="442" fill="#00FF00" font-family="sans-serif" font-size="12" text-anchor="middle">JSON Response</text>
+  </g>
+</svg>

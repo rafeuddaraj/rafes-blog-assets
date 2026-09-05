@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M 0 0 L 10 5 L 0 10 z" fill="#888888"/>
+    </marker>
+  </defs>
+
+  <g transform="translate(100, 50)" font-family="sans-serif" font-size="14" text-anchor="middle">
+    <!-- Nodes -->
+    <rect x="0" y="0" width="140" height="50" fill="#222" stroke="#FFC83B" rx="8"/>
+    <text x="70" y="30" fill="#FFF">SQL Query</text>
+    
+    <rect x="0" y="100" width="140" height="50" fill="#222" stroke="#FFC83B" rx="8"/>
+    <text x="70" y="130" fill="#FFF">Query Planner</text>
+
+    <rect x="220" y="100" width="140" height="50" fill="#222" stroke="#FFC83B" rx="8"/>
+    <text x="290" y="130" fill="#FFF">Index Scan</text>
+
+    <rect x="440" y="100" width="140" height="50" fill="#222" stroke="#FF4444" rx="8" stroke-width="2"/>
+    <text x="510" y="130" fill="#FFF">OFFSET</text>
+    <text x="510" y="170" fill="#FF4444" font-size="12">Traverse &amp; Discard</text>
+
+    <rect x="440" y="220" width="140" height="50" fill="#222" stroke="#FFC83B" rx="8"/>
+    <text x="510" y="250" fill="#FFF">LIMIT</text>
+
+    <rect x="440" y="320" width="140" height="50" fill="#2A2A00" stroke="#FFC83B" rx="8"/>
+    <text x="510" y="350" fill="#FFC83B">Final Result</text>
+
+    <!-- Edges -->
+    <line x1="70" y1="50" x2="70" y2="90" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="140" y1="125" x2="210" y2="125" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="360" y1="125" x2="430" y2="125" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="510" y1="150" x2="510" y2="210" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+    <line x1="510" y1="270" x2="510" y2="310" stroke="#888" stroke-width="2" marker-end="url(#arrow)"/>
+  </g>
+</svg>

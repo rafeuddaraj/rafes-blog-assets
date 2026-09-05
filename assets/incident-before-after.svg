@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 350">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  <text x="400" y="30" fill="#FFFFFF" font-family="sans-serif" font-size="18" font-weight="bold" text-anchor="middle">Incident Architecture: Before vs After</text>
+
+  <!-- Left: Before -->
+  <rect x="50" y="70" width="300" height="250" fill="#1A1A1A" stroke="#FF4444" rx="8"/>
+  <text x="200" y="100" fill="#FF4444" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">Before (Deep OFFSET)</text>
+  
+  <rect x="100" y="130" width="200" height="40" fill="#222" stroke="#888" rx="4"/>
+  <text x="200" y="155" fill="#FFF" font-family="monospace" font-size="12" text-anchor="middle">Client Retries</text>
+
+  <rect x="100" y="190" width="200" height="40" fill="#440000" stroke="#FF4444" rx="4"/>
+  <text x="200" y="215" fill="#FFF" font-family="monospace" font-size="12" text-anchor="middle">Database CPU 100%</text>
+
+  <rect x="100" y="250" width="200" height="40" fill="#440000" stroke="#FF4444" rx="4"/>
+  <text x="200" y="275" fill="#FFF" font-family="monospace" font-size="12" text-anchor="middle">Latency &gt; 5000ms</text>
+
+  <path d="M 200 170 L 200 190" stroke="#FF4444" stroke-width="2"/>
+  <path d="M 200 230 L 200 250" stroke="#FF4444" stroke-width="2"/>
+
+  <!-- Right: After -->
+  <rect x="450" y="70" width="300" height="250" fill="#1A1A1A" stroke="#FFC83B" rx="8"/>
+  <text x="600" y="100" fill="#FFC83B" font-family="sans-serif" font-size="16" font-weight="bold" text-anchor="middle">After (Indexed Cursor)</text>
+
+  <rect x="500" y="130" width="200" height="40" fill="#222" stroke="#888" rx="4"/>
+  <text x="600" y="155" fill="#FFF" font-family="monospace" font-size="12" text-anchor="middle">Opaque Cursor API</text>
+
+  <rect x="500" y="190" width="200" height="40" fill="#2A2A00" stroke="#FFC83B" rx="4"/>
+  <text x="600" y="215" fill="#FFF" font-family="monospace" font-size="12" text-anchor="middle">B-Tree Range Scan</text>
+
+  <rect x="500" y="250" width="200" height="40" fill="#222" stroke="#00FF00" rx="4"/>
+  <text x="600" y="275" fill="#00FF00" font-family="monospace" font-size="12" text-anchor="middle">Latency &lt; 50ms Flat</text>
+
+  <path d="M 600 170 L 600 190" stroke="#FFC83B" stroke-width="2"/>
+  <path d="M 600 230 L 600 250" stroke="#00FF00" stroke-width="2"/>
+</svg>
