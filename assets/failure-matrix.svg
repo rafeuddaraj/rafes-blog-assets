@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 300">
+  <rect width="100%" height="100%" fill="#0F0F0F"/>
+  
+  <line x1="50" y1="50" x2="750" y2="50" stroke="#FFC83B" stroke-width="2"/>
+  <line x1="50" y1="100" x2="750" y2="100" stroke="#888888" stroke-width="1"/>
+  <line x1="50" y1="150" x2="750" y2="150" stroke="#888888" stroke-width="1"/>
+  <line x1="50" y1="200" x2="750" y2="200" stroke="#888888" stroke-width="1"/>
+  <line x1="50" y1="250" x2="750" y2="250" stroke="#FFC83B" stroke-width="2"/>
+
+  <text x="150" y="80" fill="#FFC83B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Failure Point</text>
+  <text x="400" y="80" fill="#FFC83B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">Action on Retry</text>
+  <text x="650" y="80" fill="#FFC83B" font-family="sans-serif" font-size="14" font-weight="bold" text-anchor="middle">System Outcome</text>
+
+  <text x="150" y="130" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Network Drop Pre-Process</text>
+  <text x="400" y="130" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Message delivered again</text>
+  <text x="650" y="130" fill="#888888" font-family="sans-serif" font-size="14" text-anchor="middle">Processed 1x</text>
+
+  <text x="150" y="180" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">DB Crash Pre-Commit</text>
+  <text x="400" y="180" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Transaction rolls back, retry hits DB</text>
+  <text x="650" y="180" fill="#888888" font-family="sans-serif" font-size="14" text-anchor="middle">Processed 1x</text>
+
+  <text x="150" y="230" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">ACK Lost Post-Commit</text>
+  <text x="400" y="230" fill="#FFFFFF" font-family="sans-serif" font-size="14" text-anchor="middle">Constraint/Inbox catches duplicate</text>
+  <text x="650" y="230" fill="#888888" font-family="sans-serif" font-size="14" text-anchor="middle">Ignored (Effectively 1x)</text>
+</svg>
