@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" width="820" height="340" role="img" aria-label="Four stacked retry layers multiplying one failed call into many">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 14px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.l{stroke:#FFC83B;stroke-width:2;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FFC83B"/></marker></defs>
+<rect width="820" height="340" fill="#0F0F0F"/>
+<text x="230" y="28" text-anchor="middle" class="y">Retry layers, top to bottom</text>
+<rect x="40" y="50" width="380" height="46" rx="6" class="b"/>
+<text x="230" y="70" text-anchor="middle" class="t">LLM re-emits the tool call</text>
+<text x="230" y="87" text-anchor="middle" class="g">sees the error, reasons again (x3)</text>
+<rect x="40" y="120" width="380" height="46" rx="6" class="b"/>
+<text x="230" y="140" text-anchor="middle" class="t">Agent framework step retry</text>
+<text x="230" y="157" text-anchor="middle" class="g">re-runs the whole step (x3)</text>
+<rect x="40" y="190" width="380" height="46" rx="6" class="b"/>
+<text x="230" y="210" text-anchor="middle" class="t">Tool wrapper retry</text>
+<text x="230" y="227" text-anchor="middle" class="g">retries on timeout or 5xx (x3)</text>
+<rect x="40" y="260" width="380" height="46" rx="6" class="b"/>
+<text x="230" y="280" text-anchor="middle" class="t">HTTP client retry</text>
+<text x="230" y="297" text-anchor="middle" class="g">retries the socket call (x3)</text>
+<line x1="230" y1="96" x2="230" y2="118" class="l" marker-end="url(#a)"/>
+<line x1="230" y1="166" x2="230" y2="188" class="l" marker-end="url(#a)"/>
+<line x1="230" y1="236" x2="230" y2="258" class="l" marker-end="url(#a)"/>
+<text x="630" y="110" text-anchor="middle" class="t">If every layer retries 3 times</text>
+<text x="630" y="170" text-anchor="middle" class="y" style="font-size:28px">3 x 3 x 3 x 3</text>
+<text x="630" y="215" text-anchor="middle" class="y" style="font-size:22px">81 possible calls</text>
+<text x="630" y="245" text-anchor="middle" class="g">for one single Intent</text>
+</svg>

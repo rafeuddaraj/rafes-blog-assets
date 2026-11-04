@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" role="img" aria-label="Decision flowchart for choosing a guard level based on where the tool effect happens">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+.l{stroke:#FFC83B;stroke-width:2;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FFC83B"/></marker></defs>
+<rect width="820" height="420" fill="#0F0F0F"/>
+<rect x="270" y="30" width="280" height="50" rx="6" class="b"/>
+<text x="410" y="60" text-anchor="middle" class="y">Where does the tool effect happen?</text>
+<line x1="410" y1="80" x2="145" y2="138" class="l" marker-end="url(#a)"/>
+<line x1="410" y1="80" x2="415" y2="138" class="l" marker-end="url(#a)"/>
+<line x1="410" y1="80" x2="685" y2="138" class="l" marker-end="url(#a)"/>
+<rect x="30" y="140" width="230" height="50" rx="6" class="n"/>
+<text x="145" y="170" text-anchor="middle" class="t">Your own database</text>
+<rect x="300" y="140" width="230" height="50" rx="6" class="n"/>
+<text x="415" y="162" text-anchor="middle" class="t">API that honors</text>
+<text x="415" y="179" text-anchor="middle" class="t">idempotency keys</text>
+<rect x="570" y="140" width="230" height="50" rx="6" class="n"/>
+<text x="685" y="162" text-anchor="middle" class="t">API with no</text>
+<text x="685" y="179" text-anchor="middle" class="t">key support</text>
+<line x1="145" y1="190" x2="145" y2="248" class="l" marker-end="url(#a)"/>
+<line x1="415" y1="190" x2="415" y2="248" class="l" marker-end="url(#a)"/>
+<line x1="685" y1="190" x2="685" y2="248" class="l" marker-end="url(#a)"/>
+<rect x="30" y="250" width="230" height="60" rx="6" class="b"/>
+<text x="145" y="275" text-anchor="middle" class="y">Level 4</text>
+<text x="145" y="295" text-anchor="middle" class="t">atomic commit</text>
+<rect x="300" y="250" width="230" height="60" rx="6" class="b"/>
+<text x="415" y="275" text-anchor="middle" class="y">Level 2 or 3</text>
+<text x="415" y="295" text-anchor="middle" class="t">pass the provider key</text>
+<rect x="570" y="250" width="230" height="60" rx="6" class="b"/>
+<text x="685" y="275" text-anchor="middle" class="y">Level 5: UNKNOWN state</text>
+<text x="685" y="295" text-anchor="middle" class="t">reconcile or human gate</text>
+<rect x="110" y="345" width="600" height="50" rx="6" class="n"/>
+<text x="410" y="375" text-anchor="middle" class="y">Long running or human in the loop agent? Add Level 3 durable execution on top.</text>
+</svg>

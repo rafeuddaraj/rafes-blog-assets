@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 340" width="820" height="340" role="img" aria-label="Hash of args key versus stable key from persisted intent">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+.l{stroke:#FFC83B;stroke-width:2;fill:none}
+.d{stroke:#888888;stroke-width:1.5;stroke-dasharray:5 4;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FFC83B"/></marker></defs>
+<rect width="820" height="340" fill="#0F0F0F"/>
+<text x="205" y="26" text-anchor="middle" class="y">Level 1: hash of args</text>
+<text x="615" y="26" text-anchor="middle" class="y">Level 2: stable key</text>
+<line x1="410" y1="40" x2="410" y2="320" class="d"/>
+<rect x="30" y="60" width="150" height="40" rx="6" class="n"/><text x="105" y="85" text-anchor="middle" class="t">args v1</text>
+<rect x="240" y="60" width="130" height="40" rx="6" class="b"/><text x="305" y="85" text-anchor="middle" class="t">key K1</text>
+<line x1="180" y1="80" x2="238" y2="80" class="l" marker-end="url(#a)"/>
+<rect x="240" y="120" width="130" height="36" rx="6" class="n"/><text x="305" y="143" text-anchor="middle" class="t">Effect 1</text>
+<line x1="305" y1="100" x2="305" y2="118" class="l" marker-end="url(#a)"/>
+<rect x="30" y="190" width="150" height="40" rx="6" class="n"/><text x="105" y="208" text-anchor="middle" class="t">args v2</text><text x="105" y="223" text-anchor="middle" class="g">reworded by LLM</text>
+<rect x="240" y="190" width="130" height="40" rx="6" class="b"/><text x="305" y="215" text-anchor="middle" class="t">key K2</text>
+<line x1="180" y1="210" x2="238" y2="210" class="l" marker-end="url(#a)"/>
+<rect x="240" y="250" width="130" height="36" rx="6" class="n"/><text x="305" y="273" text-anchor="middle" class="t">Effect 2</text>
+<line x1="305" y1="230" x2="305" y2="248" class="l" marker-end="url(#a)"/>
+<text x="205" y="315" text-anchor="middle" class="y">Two keys, two effects, no error</text>
+<text x="615" y="120" text-anchor="middle" class="g">any number of attempts</text>
+<rect x="440" y="140" width="170" height="70" rx="6" class="n"/>
+<text x="525" y="165" text-anchor="middle" class="t">Persisted intent</text>
+<text x="525" y="183" text-anchor="middle" class="g">run_id, step,</text>
+<text x="525" y="198" text-anchor="middle" class="g">tool_call_id</text>
+<rect x="660" y="150" width="120" height="50" rx="6" class="b"/>
+<text x="720" y="172" text-anchor="middle" class="t">key K</text>
+<text x="720" y="190" text-anchor="middle" class="y">same always</text>
+<line x1="610" y1="175" x2="658" y2="175" class="l" marker-end="url(#a)"/>
+<rect x="660" y="250" width="120" height="40" rx="6" class="n"/><text x="720" y="275" text-anchor="middle" class="t">1 Effect</text>
+<line x1="720" y1="200" x2="720" y2="248" class="l" marker-end="url(#a)"/>
+<text x="615" y="315" text-anchor="middle" class="y">One intent, one key, one effect</text>
+</svg>

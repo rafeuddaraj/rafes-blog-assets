@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 390" width="820" height="390" role="img" aria-label="Architecture of the crash injection lab">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+.l{stroke:#FFC83B;stroke-width:2;fill:none}
+.w{stroke:#FFC83B;stroke-width:3.5;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FFC83B"/></marker></defs>
+<rect width="820" height="390" fill="#0F0F0F"/>
+<text x="410" y="26" text-anchor="middle" class="y">Crash injection lab</text>
+<rect x="30" y="50" width="150" height="60" rx="6" class="n"/>
+<text x="105" y="76" text-anchor="middle" class="t">Scripted LLM</text>
+<text x="105" y="94" text-anchor="middle" class="g">deterministic</text>
+<rect x="270" y="50" width="170" height="60" rx="6" class="b"/>
+<text x="355" y="76" text-anchor="middle" class="t">Agent Runtime</text>
+<text x="355" y="94" text-anchor="middle" class="g">event log, guards</text>
+<rect x="530" y="50" width="170" height="60" rx="6" class="n"/>
+<text x="615" y="76" text-anchor="middle" class="t">Tool Wrappers</text>
+<text x="615" y="94" text-anchor="middle" class="g">charge, email, grant</text>
+<rect x="270" y="180" width="170" height="50" rx="6" class="b"/>
+<text x="355" y="210" text-anchor="middle" class="y">Crash Injector</text>
+<rect x="530" y="180" width="170" height="50" rx="6" class="n"/>
+<text x="615" y="203" text-anchor="middle" class="t">Ledger DB</text>
+<text x="615" y="220" text-anchor="middle" class="g">side_effects table</text>
+<rect x="270" y="310" width="170" height="50" rx="6" class="b"/>
+<text x="355" y="340" text-anchor="middle" class="y">Oracle</text>
+<rect x="30" y="310" width="170" height="50" rx="6" class="n"/>
+<text x="115" y="340" text-anchor="middle" class="t">Reference Run</text>
+<line x1="180" y1="80" x2="268" y2="80" class="l" marker-end="url(#a)"/>
+<line x1="440" y1="80" x2="528" y2="80" class="l" marker-end="url(#a)"/>
+<line x1="355" y1="180" x2="355" y2="112" class="w" marker-end="url(#a)"/>
+<text x="367" y="150" class="y">SIGKILL at W1 to W4</text>
+<line x1="615" y1="110" x2="615" y2="178" class="l" marker-end="url(#a)"/>
+<text x="627" y="150" class="g">writes effects</text>
+<path d="M615 230 L615 335 L442 335" class="l" marker-end="url(#a)"/>
+<text x="528" y="327" text-anchor="middle" class="g">compare</text>
+<line x1="200" y1="335" x2="268" y2="335" class="l" marker-end="url(#a)"/>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 460" width="820" height="460" role="img" aria-label="Heatmap of duplicate side effects by guard level and crash window">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.k{fill:#0F0F0F;font:bold 13px Arial,Helvetica,sans-serif}
+.f{fill:#FFC83B;stroke:#FFC83B;stroke-width:1.5}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+</style>
+<rect width="820" height="460" fill="#0F0F0F"/>
+<text x="410" y="26" text-anchor="middle" class="y">Duplicate side effects by guard level and crash window</text>
+<text x="310" y="58" text-anchor="middle" class="t">W1</text>
+<text x="440" y="58" text-anchor="middle" class="t">W2</text>
+<text x="570" y="58" text-anchor="middle" class="t">W3</text>
+<text x="700" y="58" text-anchor="middle" class="t">W4</text>
+<text x="20" y="97" class="t">L0 Naive resume</text>
+<rect x="250" y="70" width="120" height="44" rx="4" class="n"/><text x="310" y="97" text-anchor="middle" class="g">0</text>
+<rect x="380" y="70" width="120" height="44" rx="4" class="n"/><text x="440" y="97" text-anchor="middle" class="g">0</text>
+<rect x="510" y="70" width="120" height="44" rx="4" class="f"/><text x="570" y="97" text-anchor="middle" class="k">DUP</text>
+<rect x="640" y="70" width="120" height="44" rx="4" class="f"/><text x="700" y="97" text-anchor="middle" class="k">DUP</text>
+<text x="20" y="151" class="t">L1 Hash of args</text>
+<rect x="250" y="124" width="120" height="44" rx="4" class="n"/><text x="310" y="151" text-anchor="middle" class="g">0</text>
+<rect x="380" y="124" width="120" height="44" rx="4" class="n"/><text x="440" y="151" text-anchor="middle" class="g">0</text>
+<rect x="510" y="124" width="120" height="44" rx="4" class="b"/><text x="570" y="151" text-anchor="middle" class="y">COND</text>
+<rect x="640" y="124" width="120" height="44" rx="4" class="b"/><text x="700" y="151" text-anchor="middle" class="y">COND</text>
+<text x="20" y="205" class="t">L2 Stable key</text>
+<rect x="250" y="178" width="120" height="44" rx="4" class="n"/><text x="310" y="205" text-anchor="middle" class="g">0</text>
+<rect x="380" y="178" width="120" height="44" rx="4" class="n"/><text x="440" y="205" text-anchor="middle" class="g">0</text>
+<rect x="510" y="178" width="120" height="44" rx="4" class="b"/><text x="570" y="205" text-anchor="middle" class="y">COND</text>
+<rect x="640" y="178" width="120" height="44" rx="4" class="n"/><text x="700" y="205" text-anchor="middle" class="g">0</text>
+<text x="20" y="259" class="t">L3 Durable execution</text>
+<rect x="250" y="232" width="120" height="44" rx="4" class="n"/><text x="310" y="259" text-anchor="middle" class="g">0</text>
+<rect x="380" y="232" width="120" height="44" rx="4" class="n"/><text x="440" y="259" text-anchor="middle" class="g">0</text>
+<rect x="510" y="232" width="120" height="44" rx="4" class="b"/><text x="570" y="259" text-anchor="middle" class="y">COND</text>
+<rect x="640" y="232" width="120" height="44" rx="4" class="n"/><text x="700" y="259" text-anchor="middle" class="g">0</text>
+<text x="20" y="313" class="t">L4 Atomic commit</text>
+<rect x="250" y="286" width="120" height="44" rx="4" class="n"/><text x="310" y="313" text-anchor="middle" class="g">0</text>
+<rect x="380" y="286" width="120" height="44" rx="4" class="n"/><text x="440" y="313" text-anchor="middle" class="g">0</text>
+<rect x="510" y="286" width="120" height="44" rx="4" class="n"/><text x="570" y="313" text-anchor="middle" class="g">0</text>
+<rect x="640" y="286" width="120" height="44" rx="4" class="n"/><text x="700" y="313" text-anchor="middle" class="g">0</text>
+<text x="20" y="367" class="t">L5 Reconcile</text>
+<rect x="250" y="340" width="120" height="44" rx="4" class="n"/><text x="310" y="367" text-anchor="middle" class="g">0</text>
+<rect x="380" y="340" width="120" height="44" rx="4" class="n"/><text x="440" y="367" text-anchor="middle" class="g">0</text>
+<rect x="510" y="340" width="120" height="44" rx="4" class="n"/><text x="570" y="367" text-anchor="middle" class="g">0</text>
+<rect x="640" y="340" width="120" height="44" rx="4" class="n"/><text x="700" y="367" text-anchor="middle" class="g">0</text>
+<rect x="20" y="402" width="30" height="20" rx="3" class="f"/><text x="58" y="417" class="t">DUP: duplicate happens</text>
+<rect x="230" y="402" width="30" height="20" rx="3" class="b"/><text x="268" y="417" class="t">COND: depends on a condition</text>
+<rect x="540" y="402" width="30" height="20" rx="3" class="n"/><text x="578" y="417" class="t">0: no duplicate</text>
+<text x="410" y="446" text-anchor="middle" class="g">L4 assumes the effect lives in your own database. COND at L2 and L3 needs a provider that honors the key.</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 440" width="820" height="440" role="img" aria-label="Timeline of the double charge incident">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+.l{stroke:#FFC83B;stroke-width:2;fill:none}
+.w{stroke:#FFC83B;stroke-width:3.5;fill:none}
+.d{stroke:#888888;stroke-width:1.5;stroke-dasharray:5 4;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FFC83B"/></marker></defs>
+<rect width="820" height="440" fill="#0F0F0F"/>
+<text x="410" y="26" text-anchor="middle" class="y">Double charge incident timeline</text>
+<rect x="40" y="44" width="140" height="34" rx="6" class="b"/><text x="110" y="66" text-anchor="middle" class="t">Agent</text>
+<rect x="240" y="44" width="140" height="34" rx="6" class="b"/><text x="310" y="66" text-anchor="middle" class="t">Tool Wrapper</text>
+<rect x="440" y="44" width="140" height="34" rx="6" class="b"/><text x="510" y="66" text-anchor="middle" class="t">Stripe</text>
+<rect x="640" y="44" width="140" height="34" rx="6" class="b"/><text x="710" y="66" text-anchor="middle" class="t">Entitlements</text>
+<line x1="110" y1="78" x2="110" y2="375" class="d"/>
+<line x1="310" y1="78" x2="310" y2="375" class="d"/>
+<line x1="510" y1="78" x2="510" y2="375" class="d"/>
+<line x1="710" y1="78" x2="710" y2="375" class="d"/>
+<line x1="110" y1="110" x2="302" y2="110" class="l" marker-end="url(#a)"/>
+<text x="206" y="102" text-anchor="middle" class="t">1 charge 250 USD</text>
+<line x1="310" y1="150" x2="502" y2="150" class="l" marker-end="url(#a)"/>
+<text x="406" y="142" text-anchor="middle" class="t">2 create charge</text>
+<line x1="510" y1="190" x2="318" y2="190" class="l" marker-end="url(#a)"/>
+<text x="414" y="182" text-anchor="middle" class="t">3 charge OK, response lost</text>
+<text x="414" y="208" text-anchor="middle" class="y">network error</text>
+<line x1="302" y1="240" x2="118" y2="240" class="l" marker-end="url(#a)"/>
+<text x="206" y="232" text-anchor="middle" class="t">4 error: timeout</text>
+<line x1="110" y1="280" x2="302" y2="280" class="l" marker-end="url(#a)"/>
+<text x="206" y="272" text-anchor="middle" class="t">5 retry whole step</text>
+<line x1="310" y1="320" x2="502" y2="320" class="w" marker-end="url(#a)"/>
+<text x="406" y="312" text-anchor="middle" class="y">6 second charge</text>
+<line x1="310" y1="360" x2="702" y2="360" class="l" marker-end="url(#a)"/>
+<text x="506" y="352" text-anchor="middle" class="t">7 grant entitlement</text>
+<rect x="140" y="388" width="540" height="40" rx="6" class="b"/>
+<text x="410" y="412" text-anchor="middle" class="y">The key lived at the tool call layer. The retry happened one layer above.</text>
+</svg>

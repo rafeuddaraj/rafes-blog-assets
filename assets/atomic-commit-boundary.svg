@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 370" width="820" height="370" role="img" aria-label="Single transaction versus two separate transactions for effect and completion record">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+.dy{stroke:#FFC83B;stroke-width:2;stroke-dasharray:8 5;fill:none}
+.x{stroke:#FFC83B;stroke-width:3;fill:none}
+.d{stroke:#888888;stroke-width:1.5;stroke-dasharray:5 4;fill:none}
+</style>
+<rect width="820" height="370" fill="#0F0F0F"/>
+<rect x="60" y="40" width="700" height="140" rx="10" class="dy"/>
+<text x="410" y="66" text-anchor="middle" class="y">Single DB transaction</text>
+<rect x="110" y="86" width="260" height="50" rx="6" class="b"/><text x="240" y="116" text-anchor="middle" class="t">Side effect row</text>
+<rect x="450" y="86" width="260" height="50" rx="6" class="b"/><text x="580" y="116" text-anchor="middle" class="t">STEP_COMPLETED event</text>
+<text x="410" y="164" text-anchor="middle" class="t">COMMIT: both or neither</text>
+<text x="410" y="225" text-anchor="middle" class="y">Wrong: two separate transactions</text>
+<rect x="110" y="250" width="260" height="50" rx="6" class="n"/><text x="240" y="280" text-anchor="middle" class="t">Tx 1: side effect row</text>
+<rect x="450" y="250" width="260" height="50" rx="6" class="n"/><text x="580" y="280" text-anchor="middle" class="t">Tx 2: completion event</text>
+<line x1="372" y1="275" x2="448" y2="275" class="d"/>
+<line x1="400" y1="262" x2="420" y2="288" class="x"/>
+<line x1="420" y1="262" x2="400" y2="288" class="x"/>
+<text x="410" y="336" text-anchor="middle" class="y">Crash between the two: torn write, replay runs the effect again</text>
+</svg>

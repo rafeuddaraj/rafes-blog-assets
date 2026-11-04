@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 400" width="820" height="400" role="img" aria-label="Temporal event history replay after a worker crash">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.s{fill:#FFFFFF;font:12px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+.l{stroke:#FFC83B;stroke-width:2;fill:none}
+.dy{stroke:#FFC83B;stroke-width:2;stroke-dasharray:6 4;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FFC83B"/></marker></defs>
+<rect width="820" height="400" fill="#0F0F0F"/>
+<text x="410" y="26" text-anchor="middle" class="y">Temporal: crash, then replay from Event History</text>
+<text x="410" y="52" text-anchor="middle" class="g">Event History</text>
+<rect x="300" y="60" width="220" height="40" rx="4" class="n"/><text x="312" y="85" class="s">1 WorkflowExecutionStarted</text>
+<rect x="300" y="110" width="220" height="40" rx="4" class="n"/><text x="312" y="135" class="s">2 ActivityTaskScheduled: charge</text>
+<rect x="300" y="160" width="220" height="40" rx="4" class="n"/><text x="312" y="185" class="s">3 ActivityTaskStarted: charge</text>
+<rect x="300" y="210" width="220" height="40" rx="4" class="b"/><text x="312" y="235" class="s">4 ActivityTaskCompleted: charge</text>
+<rect x="300" y="260" width="220" height="40" rx="4" class="n"/><text x="312" y="285" class="s">5 ActivityTaskScheduled: grant</text>
+<line x1="290" y1="205" x2="530" y2="205" class="dy"/>
+<text x="540" y="209" class="y">crash window</text>
+<rect x="20" y="100" width="180" height="70" rx="6" class="b"/>
+<text x="110" y="128" text-anchor="middle" class="t">Worker A</text>
+<text x="110" y="146" text-anchor="middle" class="g">runs charge activity</text>
+<text x="110" y="200" text-anchor="middle" class="y">crashes after the effect,</text>
+<text x="110" y="217" text-anchor="middle" class="y">before completion is</text>
+<text x="110" y="234" text-anchor="middle" class="y">recorded</text>
+<line x1="200" y1="130" x2="298" y2="130" class="l" marker-end="url(#a)"/>
+<text x="249" y="122" text-anchor="middle" class="g">append</text>
+<rect x="620" y="100" width="180" height="70" rx="6" class="b"/>
+<text x="710" y="128" text-anchor="middle" class="t">Worker B</text>
+<text x="710" y="146" text-anchor="middle" class="g">replays history</text>
+<line x1="520" y1="130" x2="618" y2="130" class="l" marker-end="url(#a)"/>
+<text x="569" y="122" text-anchor="middle" class="g">replay</text>
+<rect x="60" y="325" width="700" height="60" rx="6" class="b"/>
+<text x="410" y="348" text-anchor="middle" class="t">Completed activity: result is read from history, not executed again.</text>
+<text x="410" y="368" text-anchor="middle" class="y">Activity with no recorded completion: runs again, so it needs an idempotency key.</text>
+</svg>

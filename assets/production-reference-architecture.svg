@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 420" width="820" height="420" role="img" aria-label="Production reference architecture for crash safe agent tool execution">
+<style>
+.t{fill:#FFFFFF;font:13px Arial,Helvetica,sans-serif}
+.g{fill:#888888;font:12px Arial,Helvetica,sans-serif}
+.y{fill:#FFC83B;font:bold 13px Arial,Helvetica,sans-serif}
+.b{fill:#0F0F0F;stroke:#FFC83B;stroke-width:1.5}
+.n{fill:#0F0F0F;stroke:#888888;stroke-width:1.5}
+.l{stroke:#FFC83B;stroke-width:2;fill:none}
+.d{stroke:#888888;stroke-width:1.5;stroke-dasharray:5 4;fill:none}
+</style>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#FFC83B"/></marker></defs>
+<rect width="820" height="420" fill="#0F0F0F"/>
+<rect x="310" y="40" width="200" height="50" rx="6" class="n"/>
+<text x="410" y="62" text-anchor="middle" class="t">Agent Runtime</text>
+<text x="410" y="80" text-anchor="middle" class="g">append only event log</text>
+<rect x="310" y="120" width="200" height="50" rx="6" class="b"/>
+<text x="410" y="142" text-anchor="middle" class="t">Durable Workflow Engine</text>
+<text x="410" y="160" text-anchor="middle" class="y">L3 history, replay, retries</text>
+<rect x="260" y="200" width="300" height="60" rx="6" class="b"/>
+<text x="410" y="226" text-anchor="middle" class="t">Tool Gateway</text>
+<text x="410" y="246" text-anchor="middle" class="y">L2 stable keys, L5 state machine</text>
+<line x1="410" y1="90" x2="410" y2="118" class="l" marker-end="url(#a)"/>
+<line x1="410" y1="170" x2="410" y2="198" class="l" marker-end="url(#a)"/>
+<line x1="410" y1="260" x2="140" y2="318" class="l" marker-end="url(#a)"/>
+<line x1="410" y1="260" x2="410" y2="318" class="l" marker-end="url(#a)"/>
+<line x1="410" y1="260" x2="680" y2="318" class="l" marker-end="url(#a)"/>
+<rect x="30" y="320" width="220" height="70" rx="6" class="n"/>
+<text x="140" y="350" text-anchor="middle" class="t">Provider with key</text>
+<text x="140" y="370" text-anchor="middle" class="g">Stripe style, L2</text>
+<rect x="300" y="320" width="220" height="70" rx="6" class="n"/>
+<text x="410" y="350" text-anchor="middle" class="t">Your own database</text>
+<text x="410" y="370" text-anchor="middle" class="g">L4 atomic commit</text>
+<rect x="570" y="320" width="220" height="70" rx="6" class="n"/>
+<text x="680" y="350" text-anchor="middle" class="t">API without key support</text>
+<text x="680" y="370" text-anchor="middle" class="g">L5 reconcile or human gate</text>
+<rect x="610" y="110" width="190" height="100" rx="6" class="b"/>
+<text x="705" y="138" text-anchor="middle" class="y">Observability</text>
+<text x="705" y="160" text-anchor="middle" class="t">per step trace:</text>
+<text x="705" y="178" text-anchor="middle" class="g">key, state, replay</text>
+<text x="705" y="195" text-anchor="middle" class="g">or fresh effect</text>
+<line x1="560" y1="232" x2="610" y2="190" class="d"/>
+</svg>
